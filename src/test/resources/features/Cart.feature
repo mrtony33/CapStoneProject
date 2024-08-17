@@ -8,4 +8,3 @@ Feature: Cart Features
     Then verify that item is added to cart
 
 
-  Scenario: hello

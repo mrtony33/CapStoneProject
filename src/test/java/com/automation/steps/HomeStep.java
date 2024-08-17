@@ -4,6 +4,7 @@ import com.automation.pages.HomePage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 
 public class HomeStep {
         HomePage homePage=new HomePage();
@@ -13,9 +14,8 @@ public class HomeStep {
         }
 
         @When("user search for {string}")
-        public void user_search_for(String string) {
-            
-            
+        public void user_search_for(String item) {
+            homePage.searchForItem(item);
         }
 
         @When("click on the first result")
@@ -43,4 +43,8 @@ public class HomeStep {
         }
 
 
+        @Then("verify home page is displayed")
+        public void verifyHomePageIsDisplayed() {
+                Assert.assertTrue(homePage.isHomePageDisplayed());
+        }
 }
