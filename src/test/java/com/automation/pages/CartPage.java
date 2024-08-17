@@ -8,6 +8,7 @@ public class CartPage extends BasePage{
     WebElement cartItem;
 
     public boolean verifyAddToCart() {
+
         return isDisplayed(cartItem);
     }
 }

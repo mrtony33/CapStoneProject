@@ -18,31 +18,6 @@ public class HomeStep {
             homePage.searchForItem(item);
         }
 
-        @When("click on the first result")
-        public void click_on_the_first_result() {
-            
-            
-        }
-
-        @Then("verify product page is displayed")
-        public void verify_product_page_is_displayed() {
-            
-            
-        }
-
-        @When("user clicks add to cart button")
-        public void user_clicks_add_to_cart_button() {
-            
-            
-        }
-
-        @Then("verify that item is added to cart")
-        public void verify_that_item_is_added_to_cart() {
-            
-            
-        }
-
-
         @Then("verify home page is displayed")
         public void verifyHomePageIsDisplayed() {
                 Assert.assertTrue(homePage.isHomePageDisplayed());

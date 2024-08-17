@@ -16,8 +16,11 @@ public class ProductPageSteps {
 
     @When("user clicks add to cart button")
     public void user_clicks_add_to_cart_button() {
-productPage.doAddToCart();
+        productPage.doAddToCart();
     }
 
-
+    @Then("verify the searched product is displayed")
+    public void verifyTheSearchedProductIsDisplayed() {
+        Assert.assertTrue(productPage.isProductDisplayed());
+    }
 }

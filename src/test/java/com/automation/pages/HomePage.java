@@ -16,9 +16,6 @@ public class HomePage extends BasePage{
     @FindBy(xpath = "//div[@class='desktop-actions']")
     WebElement actions;
 
-    @FindBy(xpath = "//h1[@class='title-title']")
-    WebElement productTitle;
-
 
     public void openWebsite() {
         driver.get(ConfigReader.getProperty("base.url"));
@@ -33,7 +30,4 @@ public class HomePage extends BasePage{
         return  logo.isDisplayed() && actions.isDisplayed();
     }
 
-    public boolean isProductDisplayed() {
-        return productTitle.isDisplayed();
-    }
 }

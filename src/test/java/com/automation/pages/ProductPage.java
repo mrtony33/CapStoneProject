@@ -12,9 +12,8 @@ public class ProductPage extends BasePage{
     WebElement goToBag;
     @FindBy(xpath = "//span[contains(@class,'desktop-badge') and text()='1']")
     WebElement cartIcon;
-
-
-
+    @FindBy(xpath = "//h1[@class='title-title']")
+    WebElement productTitle;
 
     public boolean isPageDisplayed() {
         return isDisplayed(selectSize);
@@ -37,4 +36,7 @@ public class ProductPage extends BasePage{
     }
 
 
+    public boolean isProductDisplayed() {
+        return isDisplayed(productTitle);
+    }
 }
