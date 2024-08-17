@@ -1,7 +1,6 @@
 package com.automation.steps;
 
 import com.automation.pages.HomePage;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -21,7 +20,8 @@ public class HomeStep {
 
         @When("click on the first result")
         public void click_on_the_first_result() {
-
+            
+            
         }
 
         @Then("verify product page is displayed")
@@ -46,10 +46,5 @@ public class HomeStep {
         @Then("verify home page is displayed")
         public void verifyHomePageIsDisplayed() {
                 Assert.assertTrue(homePage.isHomePageDisplayed());
-        }
-
-        @Then("verify the searched product is displayed")
-        public void verifyTheSearchedProductIsDisplayed() {
-                Assert.assertTrue(homePage.isProductDisplayed());
         }
 }
