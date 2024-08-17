@@ -7,6 +7,8 @@ import org.openqa.selenium.support.FindBy;
 public class HomePage extends BasePage{
     @FindBy(xpath = "//input[contains(@placeholder,'Search')]")
     WebElement searchInput;
+    @FindBy(xpath = "//a[contains(@class,'submit')]")
+    WebElement searchButton;
 
 
     public void openWebsite() {
@@ -14,6 +16,7 @@ public class HomePage extends BasePage{
     }
 
     public void searchForItem(String item) {
-        searchInput.sendKeys();
+        searchInput.sendKeys(item);
+        searchButton.click();
     }
 }
