@@ -3,6 +3,7 @@ package com.automation.steps;
 import com.automation.pages.HomePage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 
 public class HomeStep {
         HomePage homePage=new HomePage();
@@ -25,4 +26,8 @@ public class HomeStep {
 
 
 
+        @Then("verify home page is displayed")
+        public void verifyHomePageIsDisplayed() {
+                Assert.assertTrue(homePage.isHomePageDisplayed());
+        }
 }

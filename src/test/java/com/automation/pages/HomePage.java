@@ -10,6 +10,12 @@ public class HomePage extends BasePage{
     @FindBy(xpath = "//a[contains(@class,'submit')]")
     WebElement searchButton;
 
+    @FindBy(xpath = "//div[@class='desktop-logoContainer']")
+    WebElement logo;
+
+    @FindBy(xpath = "//div[@class='desktop-actions']")
+    WebElement actions;
+
 
     public void openWebsite() {
         driver.get(ConfigReader.getProperty("base.url"));
@@ -18,5 +24,9 @@ public class HomePage extends BasePage{
     public void searchForItem(String item) {
         searchInput.sendKeys(item);
         searchButton.click();
+    }
+
+    public boolean isHomePageDisplayed() {
+        return  logo.isDisplayed() && actions.isDisplayed();
     }
 }
