@@ -6,12 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5d53cca9-deb9-4429-8c76-a7fcddae412a" name="Changes" comment="Merge remote-tracking branch 'origin/main'">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/pages/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/pages/BasePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/pages/CartPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/pages/CartPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/pages/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/pages/HomePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/pages/ProductPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/pages/ProductPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/steps/HomeStep.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/steps/HomeStep.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/steps/ProductPageSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/steps/ProductPageSteps.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +49,7 @@
     "onboarding.tips.debug.path": "C:/UST_Java/CapStoneProject/src/main/java/org/example/Main.java"
   }
 }]]></component>
-  <component name="RunManager" selected="Cucumber Java.Scenario: Verify user can sort the product price from low to high">
+  <component name="RunManager" selected="Cucumber Java.Scenario: Verify user can search a product">
     <configuration name="Scenario: Verify user can search a product" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/Search.feature" />
@@ -136,9 +131,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Cucumber Java.Scenario: Verify user can search a product" />
         <item itemvalue="Cucumber Java.Scenario: Verify user can sort the product price from low to high" />
         <item itemvalue="Cucumber Java.Scenario: Verify user can sort the product price from high to low" />
-        <item itemvalue="Cucumber Java.Scenario: Verify user can search a product" />
         <item itemvalue="Cucumber Java.Scenario: Verify user can use add to cart functionality" />
       </list>
     </recent_temporary>
@@ -176,7 +171,23 @@
       <option name="project" value="LOCAL" />
       <updated>1723892097721</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Merge remote-tracking branch 'origin/main'">
+      <option name="closed" value="true" />
+      <created>1723893130315</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1723893130315</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Merge remote-tracking branch 'origin/main'">
+      <option name="closed" value="true" />
+      <created>1723893363018</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1723893363019</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

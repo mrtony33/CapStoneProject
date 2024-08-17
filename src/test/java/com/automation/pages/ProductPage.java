@@ -37,6 +37,6 @@ public class ProductPage extends BasePage{
 
 
     public boolean isProductDisplayed() {
-        return isDisplayed(productTitle);
+        return productTitle.getText().contains("Shoe");
     }
 }
