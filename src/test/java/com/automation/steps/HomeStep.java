@@ -13,9 +13,8 @@ public class HomeStep {
         }
 
         @When("user search for {string}")
-        public void user_search_for(String string) {
-            
-            
+        public void user_search_for(String item) {
+            homePage.searchForItem(item);
         }
 
         @When("click on the first result")
