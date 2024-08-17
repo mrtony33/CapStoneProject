@@ -1,4 +1,4 @@
-Feature: Sort thr product
+Feature: Sort the product
 
   Scenario: Verify user can sort the product price from high to low
     Given user opens website
