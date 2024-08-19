@@ -18,7 +18,6 @@ public class ProductPage extends BasePage{
     public boolean isPageDisplayed() {
         return isDisplayed(selectSize);
     }
-
     public void doAddToCart() {
         String currentHandle=driver.getWindowHandle();
         for (String handle:driver.getWindowHandles()){
