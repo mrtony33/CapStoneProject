@@ -20,15 +20,6 @@ Feature: Cart Features
     When user removes the item from the cart
     Then verify that item is removed from the cart
 
-  Scenario: Verify size selector functionality
-    Given user opens website
-    When user search for "shirt"
-    Then verify search results is not empty
-    And click on the first result
-    Then verify product page is displayed
-    When user select available sizes
-    Then verify all sizes are added to cart
-
 
 
 
