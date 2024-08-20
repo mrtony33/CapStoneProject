@@ -1,6 +1,5 @@
 package com.automation.pages;
 
-import io.cucumber.java.zh_cn.假如;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -16,7 +15,7 @@ public class ProductPage extends BasePage{
     WebElement addToCartButton;
     @FindBy(xpath = "//span[text()='GO TO BAG']")
     WebElement goToBag;
-    @FindBy(xpath = "//span[contains(@class,'desktop-badge') and text()='1']")
+    @FindBy(xpath = "//span[contains(@class,'desktop-badge')]")
     WebElement cartIcon;
     @FindBy(xpath = "//h1[@class='title-title']")
     WebElement productTitle;

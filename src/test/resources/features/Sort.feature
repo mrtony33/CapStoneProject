@@ -4,7 +4,7 @@ Feature: Sort the product
     Given user opens website
     Then verify home page is displayed
     When user search for "shoe"
-    And user sort the price fr`om high to low
+    And user sort the price from high to low
     Then verify the product is sorted from high to low
 
 
@@ -13,4 +13,4 @@ Feature: Sort the product
     Then verify home page is displayed
     When user search for "shoe"
     And user sort the price from low to high
-    Then verify the product is orted from low to high
+    Then verify the product is sorted from low to high
