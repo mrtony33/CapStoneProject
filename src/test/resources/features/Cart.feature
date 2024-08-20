@@ -41,6 +41,14 @@ Feature: Cart Features
     Then verify all sizes are added to cart
 
 
+  Scenario: Verify clickable 
+    Given user opens website
+    When user select available sizes
+
+
+
+
+
 
 
 

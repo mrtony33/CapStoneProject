@@ -48,8 +48,9 @@ public class ProductPage extends BasePage{
     public void selectAllAvailableSizes() {
         switchHandles();
         doScroll(300);
+        System.out.println(sizes.size());
         for (WebElement i:sizes){
-            i.click();
+            jse.executeScript("arguments[0].click();", i);
             addToCartButton.click();
         }
     }

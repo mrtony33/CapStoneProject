@@ -18,7 +18,6 @@ public class BasePage {
         jse = (JavascriptExecutor)driver;
     }
 
-
     public void switchHandles(){
         String currentHandle=driver.getWindowHandle();
         for (String handle:driver.getWindowHandles()){
