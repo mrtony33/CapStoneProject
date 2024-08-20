@@ -23,4 +23,24 @@ public class ProductPageSteps {
     public void verifyTheSearchedProductIsDisplayed() {
         Assert.assertTrue(productPage.isProductDisplayed());
     }
+
+    @When("user clicks on next button")
+    public void userClicksOnNextButton() {
+        productPage.clickOnNextButton();
+    }
+
+    @Then("verify next page is displayed")
+    public void verifyNextPageIsDisplayed() {
+        Assert.assertTrue(productPage.isNextPageDisplayed());
+    }
+
+    @When("user clicks previous button")
+    public void userClicksPreviousButton() {
+        productPage.clickOnPreviousButton();
+    }
+
+    @Then("verify previous page is displayed")
+    public void verifyPreviousPageIsDisplayed() {
+        Assert.assertTrue(productPage.isPreviousPageDisplayed());
+    }
 }
