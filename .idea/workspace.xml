@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d53cca9-deb9-4429-8c76-a7fcddae412a" name="Changes" comment="Merge remote-tracking branch 'origin/main'">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_17_2024_11_44_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_17_2024_11_44_AM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/pages/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/pages/BasePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/pages/CartPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/pages/CartPage.java" afterDir="false" />
@@ -13,9 +12,7 @@
       <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/steps/CartSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/steps/CartSteps.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/steps/ProductPageSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/steps/ProductPageSteps.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/features/Cart.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/Cart.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/Search.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/Search.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/steps/ProductPageSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/steps/ProductPageSteps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/Search.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/Search.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/Sort.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/Sort.feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,20 +41,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Cucumber Java.Scenario: Verify cart price.executor&quot;: &quot;Run&quot;,
-    &quot;Cucumber Java.Scenario: Verify user can remove the product from the cart.executor&quot;: &quot;Run&quot;,
-    &quot;Cucumber Java.Scenario: Verify user can search a product.executor&quot;: &quot;Run&quot;,
-    &quot;Cucumber Java.Scenario: Verify user can sort the product price from high to low.executor&quot;: &quot;Run&quot;,
-    &quot;Cucumber Java.Scenario: Verify user can sort the product price from low to high.executor&quot;: &quot;Run&quot;,
-    &quot;Cucumber Java.Scenario: Verify user can use add to cart functionality.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/UST_Java/CapStoneProject/src/test/java/com/automation/steps&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/UST_Java/CapStoneProject/src/main/java/org/example/Main.java&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Cucumber Java.Scenario: Verify cart price.executor": "Run",
+    "Cucumber Java.Scenario: Verify next and previous button working.executor": "Run",
+    "Cucumber Java.Scenario: Verify user can remove the product from the cart.executor": "Run",
+    "Cucumber Java.Scenario: Verify user can search a product.executor": "Run",
+    "Cucumber Java.Scenario: Verify user can sort the product price from high to low.executor": "Run",
+    "Cucumber Java.Scenario: Verify user can sort the product price from low to high.executor": "Run",
+    "Cucumber Java.Scenario: Verify user can use add to cart functionality.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "Merging main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/UST_Java/CapStoneProject/src/test/java/com/automation/steps",
+    "onboarding.tips.debug.path": "C:/UST_Java/CapStoneProject/src/main/java/org/example/Main.java"
   }
 }]]></component>
   <component name="RunManager" selected="Cucumber Java.Scenario: Verify next and previous button working">
@@ -161,32 +159,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Scenario: Verify user can use add to cart functionality" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/Cart.feature" />
-      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
-      <module name="CapStoneProject" />
-      <option name="NAME_FILTER" value="^Verify user can use add to cart functionality$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify user can use add to cart functionality$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: Verify user can use add to cart functionality" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="io.cucumber.core.cli.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Cucumber Java.Scenario: Verify next and previous button working" />
         <item itemvalue="Cucumber Java.Scenario: Verify cart price" />
         <item itemvalue="Cucumber Java.Scenario: Verify user can sort the product price from high to low" />
         <item itemvalue="Cucumber Java.Scenario: Verify user can search a product" />
         <item itemvalue="Cucumber Java.Scenario: Verify user can remove the product from the cart" />
-        <item itemvalue="Cucumber Java.Scenario: Verify user can use add to cart functionality" />
       </list>
     </recent_temporary>
   </component>
@@ -271,7 +250,23 @@
       <option name="project" value="LOCAL" />
       <updated>1724061028247</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Merge remote-tracking branch 'origin/main'">
+      <option name="closed" value="true" />
+      <created>1724135173471</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1724135173471</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Merge remote-tracking branch 'origin/main'">
+      <option name="closed" value="true" />
+      <created>1724143495635</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1724143495635</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
