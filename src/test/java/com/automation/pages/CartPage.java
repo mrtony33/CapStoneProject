@@ -5,7 +5,6 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class CartPage extends BasePage{
     @FindBy(xpath = "//span[text()='1/1 ITEMS SELECTED']")
@@ -79,5 +78,21 @@ public class CartPage extends BasePage{
         int price2=Integer.parseInt(p);
         System.out.println(price2);
         return price==price2;
+    }
+    ProductPage productPage=new ProductPage();
+
+
+    public boolean checkSizesAdded(){
+        List<String> sizes=new ArrayList<>();
+        for (WebElement i:productPage.sizes){
+            sizes.add("Size: "+i.getText());
+        }
+        productPage.cartIcon.click();
+        for (int i=0;i<cartAddedSizes.size();i++){
+            if (!sizes.get(i).equals(cartAddedSizes.get(i).getText())){
+                return false;
+            }
+        }
+        return true;
     }
 }
