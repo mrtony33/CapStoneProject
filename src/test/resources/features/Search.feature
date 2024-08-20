@@ -5,3 +5,4 @@ Feature: Search a product
     Then verify home page is displayed
     When user search for "shoe"
     Then verify the searched product is displayed
+

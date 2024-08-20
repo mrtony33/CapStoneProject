@@ -22,4 +22,9 @@ public class CartSteps {
     public void verifyThatItemIsRemovedFromTheCart() {
         Assert.assertTrue(cartPage.isItemInCartDisplayed());
     }
+
+    @Then("verify all sizes are added to cart")
+    public void verifyAllSizesAreAddedToCart() {
+        Assert.assertTrue(cartPage.verifyAllSizesAddedToCart());
+    }
 }

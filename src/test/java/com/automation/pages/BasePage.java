@@ -17,13 +17,24 @@ public class BasePage {
         PageFactory.initElements(driver,this);
         jse = (JavascriptExecutor)driver;
     }
+
+
+    public void switchHandles(){
+        String currentHandle=driver.getWindowHandle();
+        for (String handle:driver.getWindowHandles()){
+            System.out.println(handle);
+            if (!handle.equals(currentHandle)){
+                driver.switchTo().window(handle);
+            }
+        }
+    }
     public boolean isDisplayed(WebElement element){
         try {
             if (element!=null){
                 return true;
             }
-        }catch (Exception ignored){
-        }
+        }catch (Exception ignored){}
+
         return false;
     }
 

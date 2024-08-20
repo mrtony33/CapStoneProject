@@ -23,4 +23,11 @@ public class ProductPageSteps {
     public void verifyTheSearchedProductIsDisplayed() {
         Assert.assertTrue(productPage.isProductDisplayed());
     }
+
+    @When("user select available sizes")
+    public void userSelectAvailableSizes() {
+        productPage.selectAllAvailableSizes();
+    }
+
+
 }
