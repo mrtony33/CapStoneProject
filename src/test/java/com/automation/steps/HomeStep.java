@@ -2,6 +2,7 @@ package com.automation.steps;
 
 import com.automation.pages.HomePage;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
@@ -16,15 +17,6 @@ public class HomeStep {
         public void user_search_for(String item) {
             homePage.searchForItem(item);
         }
-
-
-
-
-
-
-
-
-
 
         @Then("verify home page is displayed")
         public void verifyHomePageIsDisplayed() {

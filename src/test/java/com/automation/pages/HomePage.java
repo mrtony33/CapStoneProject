@@ -29,4 +29,5 @@ public class HomePage extends BasePage{
     public boolean isHomePageDisplayed() {
         return  logo.isDisplayed() && actions.isDisplayed();
     }
+
 }
