@@ -31,6 +31,15 @@ Feature: Cart Features
     And verify the price in the cart page
 
 
+  Scenario: Verify size selector functionality
+    Given user opens website
+    When user search for "shirt"
+    Then verify search results is not empty
+    And click on the first result
+    Then verify product page is displayed
+    When user select available sizes
+    Then verify all sizes are added to cart
+
 
 
 

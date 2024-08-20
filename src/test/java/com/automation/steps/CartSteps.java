@@ -33,4 +33,9 @@ public class CartSteps {
     public void takeThePriceOnPdpPage() {
         cartPage.getPriceOnPdp();
     }
+
+    @Then("verify all sizes are added to cart")
+    public void verifyAllSizesAreAddedToCart() {
+        Assert.assertTrue(cartPage.checkSizesAdded());
+    }
 }

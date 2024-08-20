@@ -4,9 +4,14 @@ import io.cucumber.java.zh_cn.假如;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 public class ProductPage extends BasePage{
     @FindBy(xpath = "(//button[contains(@class,'size-buttons-size-button ')])[1]")
     WebElement selectSize;
+
+    @FindBy(xpath = "//button[contains(@class,'size-buttons-size-button ')]")
+    List<WebElement> sizes;
     @FindBy(xpath = "//div[text()='ADD TO BAG']")
     WebElement addToCartButton;
     @FindBy(xpath = "//span[text()='GO TO BAG']")
@@ -27,13 +32,7 @@ public class ProductPage extends BasePage{
         return isDisplayed(selectSize);
     }
     public void doAddToCart() {
-        String currentHandle=driver.getWindowHandle();
-        for (String handle:driver.getWindowHandles()){
-            System.out.println(handle);
-            if (!handle.equals(currentHandle)){
-                driver.switchTo().window(handle);
-            }
-        }
+        switchHandles();
         doScroll(300);
         selectSize.click();
         addToCartButton.click();
@@ -45,6 +44,15 @@ public class ProductPage extends BasePage{
 
     public boolean isProductDisplayed() {
         return productTitle.getText().contains("Shoe");
+    }
+
+    public void selectAllAvailableSizes() {
+        switchHandles();
+        doScroll(300);
+        for (WebElement i:sizes){
+            i.click();
+            addToCartButton.click();
+        }
     }
     int firstPageNumber;
     public void clickOnNextButton() {

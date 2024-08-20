@@ -3,9 +3,15 @@ package com.automation.pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CartPage extends BasePage{
     @FindBy(xpath = "//span[text()='1/1 ITEMS SELECTED']")
     WebElement cartItem;
+
+    @FindBy(xpath = "//span[contains(text(),'Size: ')]")
+    List<WebElement> cartAddedSizes;
 
     @FindBy(xpath = "//button[text()='REMOVE']")
     WebElement removeButton;
@@ -42,7 +48,7 @@ public class CartPage extends BasePage{
 
     public void clickRemove() {
         removeButton.click();
-        confirmRemoveButton.click();;
+        confirmRemoveButton.click();
     }
 
     public boolean isItemInCartDisplayed() {
@@ -72,5 +78,21 @@ public class CartPage extends BasePage{
         int price2=Integer.parseInt(p);
         System.out.println(price2);
         return price==price2;
+    }
+    ProductPage productPage=new ProductPage();
+
+
+    public boolean checkSizesAdded(){
+        List<String> sizes=new ArrayList<>();
+        for (WebElement i:productPage.sizes){
+            sizes.add("Size: "+i.getText());
+        }
+        productPage.cartIcon.click();
+        for (int i=0;i<cartAddedSizes.size();i++){
+            if (!sizes.get(i).equals(cartAddedSizes.get(i).getText())){
+                return false;
+            }
+        }
+        return true;
     }
 }

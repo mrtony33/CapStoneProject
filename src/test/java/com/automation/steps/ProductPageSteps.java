@@ -43,4 +43,9 @@ public class ProductPageSteps {
     public void verifyPreviousPageIsDisplayed() {
         Assert.assertTrue(productPage.isPreviousPageDisplayed());
     }
+
+    @When("user select available sizes")
+    public void userSelectAvailableSizes() {
+        productPage.selectAllAvailableSizes();
+    }
 }
