@@ -3,32 +3,30 @@ package com.automation.pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.util.List;
-
 public class ProductPage extends BasePage{
     @FindBy(xpath = "(//button[contains(@class,'size-buttons-size-button ')])[1]")
     WebElement selectSize;
-
-    @FindBy(xpath = "//button[contains(@class,'size-buttons-size-button ')]")
-    List<WebElement> sizes;
     @FindBy(xpath = "//div[text()='ADD TO BAG']")
     WebElement addToCartButton;
     @FindBy(xpath = "//span[text()='GO TO BAG']")
     WebElement goToBag;
-    @FindBy(xpath = "//span[contains(@class,'desktop-badge')]")
+    @FindBy(xpath = "//span[contains(@class,'desktop-badge') and text()='1']")
     WebElement cartIcon;
     @FindBy(xpath = "//h1[@class='title-title']")
     WebElement productTitle;
-
 
     public boolean isPageDisplayed() {
         return isDisplayed(selectSize);
     }
 
-
-
     public void doAddToCart() {
-        switchHandles();
+        String currentHandle=driver.getWindowHandle();
+        for (String handle:driver.getWindowHandles()){
+            System.out.println(handle);
+            if (!handle.equals(currentHandle)){
+                driver.switchTo().window(handle);
+            }
+        }
         doScroll(300);
         selectSize.click();
         addToCartButton.click();
@@ -40,14 +38,5 @@ public class ProductPage extends BasePage{
 
     public boolean isProductDisplayed() {
         return productTitle.getText().contains("Shoe");
-    }
-
-    public void selectAllAvailableSizes() {
-        switchHandles();
-        doScroll(300);
-        for (WebElement i:sizes){
-            i.click();
-            addToCartButton.click();
-        }
     }
 }
