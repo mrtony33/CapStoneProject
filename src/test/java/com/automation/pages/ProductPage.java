@@ -28,6 +28,8 @@ public class ProductPage extends BasePage{
 
 
     public boolean isPageDisplayed() {
+        switchHandles();
+        doScroll(200);
         return isDisplayed(selectSize);
     }
     public void doAddToCart() {
