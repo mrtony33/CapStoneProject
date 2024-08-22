@@ -31,7 +31,7 @@ public class CartSteps {
 
     @And("take the price on pdp page")
     public void takeThePriceOnPdpPage() {
-        cartPage.getPriceOnPdp();
+        cartPage.getPriceOnProductPage();
     }
 
     @Then("verify all sizes are added to cart")

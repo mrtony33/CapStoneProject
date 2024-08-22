@@ -17,4 +17,3 @@ Feature: Search a product
     Then verify previous page is displayed
 
 
-

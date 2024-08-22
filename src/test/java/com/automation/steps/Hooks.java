@@ -17,7 +17,12 @@ public class Hooks {
     }
 
     @After
-    public void cleanup(Scenario sc){
+    public void cleanup(){
+        DriverManager.getDriver().quit();
+    }
+
+//    @After
+//    public void cleanup(Scenario sc){
 //        if (sc.isFailed()){
 //            CucumberReportManager.attachScreenShot();
 //            sc.log("Failed Page");
@@ -26,5 +31,8 @@ public class Hooks {
 //            sc.log("End page");
 //        }
 //        DriverManager.getDriver().quit();
-    }
+//    }
+
+
+
 }

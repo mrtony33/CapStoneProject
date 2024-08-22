@@ -25,8 +25,11 @@ public class CartPage extends BasePage{
     @FindBy(xpath = "//span[@class='pdp-price']")
     WebElement pdpPrice;
 
-    @FindBy(xpath = "//div[@class='priceDetail-base-total ']/span[@class='priceDetail-base-value ']")
-    WebElement cartPrice;
+    @FindBy(xpath = "//span[text()='Discount on MRP']/following-sibling::span")
+    WebElement cartDiscount;
+
+    @FindBy(xpath = "//span[text()='Total MRP']/following-sibling::span")
+    WebElement cartMrp;
 
 
     @FindBy(xpath = "(//button[contains(@class,'size-buttons-size-button ')])[1]")
@@ -35,14 +38,13 @@ public class CartPage extends BasePage{
     @FindBy(xpath = "//div[text()='ADD TO BAG']")
     WebElement addToCartButton;
 
-    @FindBy(xpath = "//span[text()='GO TO BAG']")
-    WebElement goToBag;
-
-    @FindBy(xpath = "//span[contains(@class,'desktop-badge') and text()='1']")
-    WebElement cartIcon;
+//    @FindBy(xpath = "//span[text()='GO TO BAG']")
+//    WebElement goToBag;
+//
+//    @FindBy(xpath = "//span[contains(@class,'desktop-badge') and text()='1']")
+//    WebElement cartIcon;
 
     public boolean verifyAddToCart() {
-
         return isDisplayed(cartItem);
     }
 
@@ -55,29 +57,23 @@ public class CartPage extends BasePage{
         return isDisplayed(emptyCart);
     }
 
-    int price;
-    public void getPriceOnPdp() {
-        String currentHandle=driver.getWindowHandle();
-        for (String handle:driver.getWindowHandles()){
-            if (!handle.equals(currentHandle)){
-                driver.switchTo().window(handle);
-            }
-        }
+     static int price;
+    public void getPriceOnProductPage() {
         String p=pdpPrice.getText().replaceAll("\\D","").trim();
-        price=Integer.parseInt(p);
-        System.out.println(price);
+        CartPage.price+=Integer.parseInt(p);
+        System.out.println(CartPage.price);
         doScroll(300);
         selectSize.click();
         addToCartButton.click();
-        if (isDisplayed(goToBag) && isDisplayed(cartIcon)) {
-            cartIcon.click();
-        }
     }
+
     public boolean verifyCartPrice() {
-        String p=cartPrice.getText().replaceAll("\\D","").trim();
-        int price2=Integer.parseInt(p);
-        System.out.println(price2);
-        return price==price2;
+        String mrp=cartMrp.getText().replaceAll("\\D","").trim();
+        String discount=cartDiscount.getText().replaceAll("\\D","").trim();
+        int mrpInt=Integer.parseInt(mrp);
+        int discountInt=Integer.parseInt(discount);
+        System.out.println(mrpInt-discountInt +" "+CartPage.price);
+        return CartPage.price==mrpInt-discountInt;
     }
     ProductPage productPage=new ProductPage();
 

@@ -11,7 +11,6 @@ public class ProductPageSteps {
     @Then("verify product page is displayed")
     public void verify_product_page_is_displayed() {
         Assert.assertTrue(productPage.isPageDisplayed());
-
     }
 
     @When("user clicks add to cart button")

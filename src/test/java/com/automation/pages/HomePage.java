@@ -17,6 +17,8 @@ public class HomePage extends BasePage{
     WebElement actions;
 
 
+
+
     public void openWebsite() {
         driver.get(ConfigReader.getProperty("base.url"));
     }
@@ -29,5 +31,8 @@ public class HomePage extends BasePage{
     public boolean isHomePageDisplayed() {
         return  logo.isDisplayed() && actions.isDisplayed();
     }
+
+
+
 
 }
