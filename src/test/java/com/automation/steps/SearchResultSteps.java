@@ -42,4 +42,5 @@ public class SearchResultSteps {
     @When("user removes filter")
     public void userRemovesFilter() {
     }
+
 }

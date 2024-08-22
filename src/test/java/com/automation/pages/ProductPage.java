@@ -1,8 +1,8 @@
 package com.automation.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
 import java.util.List;
 
 public class ProductPage extends BasePage{
@@ -25,6 +25,18 @@ public class ProductPage extends BasePage{
     WebElement pageNum;
     @FindBy(xpath = "//li[@class='pagination-prev']")
     WebElement previousButton;
+    @FindBy(xpath = "//li[@class='product-base']")
+    List<WebElement> searchResults;
+    @FindBy(xpath = "(//div[@class='product-ratingsContainer']/span[1])[1]")
+    WebElement fistProductRating;
+    @FindBy(xpath = "//div[@class='index-overallRating']/div[1]")
+    WebElement ratingOnPdpPage;
+    @FindBy(xpath = "//div[@class='index-flexRow index-averageRating']/span[1]")
+    WebElement averageRatingDisplayed;
+    @FindBy(xpath = "//a[@class='detailed-reviews-allReviews']")
+    WebElement viewAllReviews;
+    @FindBy(xpath = "//div[@class='dropdown-filter-active']")
+    WebElement ratingDropdown;
 
 
     public boolean isPageDisplayed() {
@@ -93,4 +105,71 @@ public class ProductPage extends BasePage{
         System.out.println(firstPageNum);
         return firstPageNum==secondPageNumber-1;
     }
+    String rating1;
+    public void clickOnFirstProduct() {
+        rating1=fistProductRating.getText();
+        searchResults.get(0).click();
+    }
+    String rating2;
+    public boolean verifyRating() {
+        switchHandles();
+        rating2=ratingOnPdpPage.getText();
+        System.out.println(rating2);
+        return rating1.equals(rating2);
+    }
+    float averageRatingCalculated;
+    public void calculateAverageRating() {
+        switchHandles();
+        float sum=0;
+        int reviewers=0;
+        int star=5;
+        for(int i=1;i<=5;i++){
+            String s=driver.findElement(By.xpath(String.format("(//div[@class='index-count'])[%s]",i))).getText();
+            int rate=Integer.parseInt(s);
+            reviewers=reviewers+rate;
+            sum =sum+(star*rate);
+            star--;
+        }
+        averageRatingCalculated=sum/reviewers;
+        averageRatingCalculated= Math.round(averageRatingCalculated * 10f) /10f;
+       System.out.println(averageRatingCalculated);
+    }
+
+    public boolean verifyAverageRating() {
+        doScroll(2000);
+        String s=averageRatingDisplayed.getText();
+        Float averageRating=Float.parseFloat(s);
+        System.out.println(averageRating);
+        return averageRating==averageRatingCalculated;
+    }
+
+    public void clickOnAllReviews() {
+        switchHandles();
+        doScroll(2000);
+        viewAllReviews.click();
+    }
+    WebElement ratingOption;
+    Character rating;
+    public void reviewBasedOnRating(String rate) {
+        ratingDropdown.click();
+        ratingOption=driver.findElement(By.xpath(String.format("//div[@class='dropdown-filter-item']/span[contains(text(),'%s')]",rate)));
+        rating=ratingOption.getText().charAt(0);
+        ratingOption.click();
+        try {
+            Thread.sleep(4000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public boolean isRatingFilterApplied() {
+            List<WebElement> filteredRating = driver.findElements(By.xpath("//div[@class='user-review-starWrapper']"));
+            for (WebElement w : filteredRating) {
+                if (w.getText().charAt(0) != (rating)) {
+                    return false;
+                }
+                System.out.println(w.getText().charAt(0));
+            }
+            return true;
+        }
 }
