@@ -3,12 +3,8 @@ package com.automation.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class SortPage extends  BasePage {
@@ -31,6 +27,15 @@ public class SortPage extends  BasePage {
             throw new RuntimeException(e);
         }
     }
+    public void sortThePriceLowToHigh() {
+        dropdown.click();
+        option2.click();
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
     public List<Integer> verifySort(){
         List<WebElement> sortedList=driver.findElements(By.xpath("//div[@class='product-price']"));
         List<Integer> sortedPriceList=new ArrayList<>();
@@ -42,21 +47,11 @@ public class SortPage extends  BasePage {
                 s = s.substring(startIndex, endIndex).trim();
                 sortedPriceList.add(Integer.parseInt(s));
             }
-                else{
-                    s=s.substring(startIndex).trim();
-                    sortedPriceList.add(Integer.parseInt(s));
-                }
+            else{
+                s=s.substring(startIndex).trim();
+                sortedPriceList.add(Integer.parseInt(s));
+            }
         }
         return sortedPriceList;
-    }
-
-    public void sortThePriceLowToHigh() {
-        dropdown.click();
-        option2.click();
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
     }
 }

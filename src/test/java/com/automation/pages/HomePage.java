@@ -16,9 +16,6 @@ public class HomePage extends BasePage{
     @FindBy(xpath = "//div[@class='desktop-actions']")
     WebElement actions;
 
-
-
-
     public void openWebsite() {
         driver.get(ConfigReader.getProperty("base.url"));
     }

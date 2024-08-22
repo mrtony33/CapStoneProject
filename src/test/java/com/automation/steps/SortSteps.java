@@ -4,7 +4,6 @@ import com.automation.pages.SortPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -17,7 +16,6 @@ public class SortSteps {
     public void userSortThePriceFromHighToLow() {
         sortPage.sortThePriceHighToLow();
     }
-
 
     @And("user sort the price from low to high")
     public void userSortThePriceFromLowToHigh() {

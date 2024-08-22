@@ -84,4 +84,10 @@ public class ProductPageSteps {
     public void verifyThatRatingReviewIsApplied() {
         Assert.assertTrue(productPage.isRatingFilterApplied());
     }
+
+    @When("user get the product rating")
+    public void userGetTheProductRating() {
+        productPage.getRating();
+    }
+
 }

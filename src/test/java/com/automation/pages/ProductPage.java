@@ -37,6 +37,10 @@ public class ProductPage extends BasePage{
     WebElement viewAllReviews;
     @FindBy(xpath = "//div[@class='dropdown-filter-active']")
     WebElement ratingDropdown;
+    @FindBy(xpath = "//div[@class='product-price']")
+    WebElement productPrice;
+    @FindBy(xpath = "//span[@class='pdp-price']")
+    WebElement pdpPrice;
 
 
     public boolean isPageDisplayed() {
@@ -106,8 +110,11 @@ public class ProductPage extends BasePage{
         return firstPageNum==secondPageNumber-1;
     }
     String rating1;
-    public void clickOnFirstProduct() {
+    public void getRating() {
         rating1=fistProductRating.getText();
+        System.out.println(rating1);
+    }
+    public void clickOnFirstProduct() {
         searchResults.get(0).click();
     }
     String rating2;
@@ -133,10 +140,10 @@ public class ProductPage extends BasePage{
         averageRatingCalculated=sum/reviewers;
         averageRatingCalculated= Math.round(averageRatingCalculated * 10f) /10f;
        System.out.println(averageRatingCalculated);
+        doScroll(5000);
     }
 
     public boolean verifyAverageRating() {
-        doScroll(2000);
         String s=averageRatingDisplayed.getText();
         Float averageRating=Float.parseFloat(s);
         System.out.println(averageRating);

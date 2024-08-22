@@ -22,7 +22,4 @@ public class HomeStep {
         public void verifyHomePageIsDisplayed() {
                 Assert.assertTrue(homePage.isHomePageDisplayed());
         }
-
-
-
 }

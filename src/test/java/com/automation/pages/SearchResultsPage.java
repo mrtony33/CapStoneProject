@@ -11,6 +11,9 @@ public class SearchResultsPage extends BasePage{
     List<WebElement> searchResults;
     @FindBy(xpath = "//span[text()='Bag']")
     WebElement cartIcon;
+    @FindBy(xpath = "//span[contains(@class,'filter-summary-removeIcon sprites-remove')]")
+    WebElement removeFilterElement;
+
 
 
 
@@ -41,20 +44,28 @@ public class SearchResultsPage extends BasePage{
     public void goToCart() {
         cartIcon.click();
     }
-
+    WebElement radio;
     public void doFilter(String filterKey) {
-        WebElement radio=driver.findElement(By.xpath(String.format("//input[contains(@value,'%s')]",filterKey)));
+        radio=driver.findElement(By.xpath(String.format("//input[contains(@value,'%s')]",filterKey)));
         javascriptClicker(radio);
-        System.out.println(radio.isSelected());
         filter=filterKey;
     }
 
-    public boolean checkFilterIsDone(int key) {
-        boolean flag=true;
-        System.out.println("hello");
-        WebElement removeFilter=driver.findElement(By.xpath("//span[contains(@class,'filter-summary-removeIcon sprites-remove')]"));
 
-        if (isDisplayed(removeFilter)){
+
+
+
+    public boolean checkFilterGender() {
+        try {
+            Thread.sleep(3000);
+        }catch (Exception ignored){}
+        return radio.isSelected();
+    }
+
+    public boolean checkFilterDiscount() {
+        int key=Integer.parseInt(filter);
+        boolean flag=true;
+        if (isDisplayed(removeFilterElement)){
             for (WebElement i:driver.findElements(By.xpath("//span[@class='product-discountPercentage']"))){
                 int currentDiscount=Integer.parseInt(i.getText().replaceAll("\\D+",""));
                 if (currentDiscount<key){
@@ -66,24 +77,16 @@ public class SearchResultsPage extends BasePage{
         return flag;
     }
 
-    public boolean checkFilterIsDone(String key) {
-        boolean flag=true;
-        for (WebElement i:driver.findElements(By.xpath("//h4[@class='product-product']"))){
-            if (!i.getText().contains(key)){
-                flag=false;
-                break;
-            }
-        }
-        return flag;
+    public void removeFilter() {
+        removeFilterElement.click();
     }
 
-
-    public boolean checkFilterDiscountAndGender() {
-        String key=filter;
-        String newKey=filter.replaceAll("\\D+","");
-        if (key.length()!=newKey.length()){
-            return checkFilterIsDone(filter);
+    public boolean removeFilterSuccess() {
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
-        return checkFilterIsDone(Integer.parseInt(filter));
+        return !isDisplayed(removeFilterElement);
     }
 }
