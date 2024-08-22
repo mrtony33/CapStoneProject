@@ -34,13 +34,26 @@ public class SearchResultSteps {
         searchResultsPage.doFilter(name);
     }
 
-    @Then("verify filter is applied")
-    public void verifyFilterIsApplied() {
-        Assert.assertTrue(searchResultsPage.checkFilterDiscountAndGender());
-    }
+
 
     @When("user removes filter")
     public void userRemovesFilter() {
+        searchResultsPage.removeFilter();
+    }
+
+    @Then("verify gender filter is applied")
+    public void verifyGenderFilterIsApplied() {
+        Assert.assertTrue(searchResultsPage.checkFilterGender());
+    }
+
+    @Then("verify discount filter is applied")
+    public void verifyDiscountFilterIsApplied() {
+        Assert.assertTrue(searchResultsPage.checkFilterDiscount());
+    }
+
+    @Then("verify filter is removed")
+    public void verifyFilterIsRemoved() {
+        Assert.assertTrue(searchResultsPage.removeFilterSuccess());
     }
 
 }

@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5d53cca9-deb9-4429-8c76-a7fcddae412a" name="Changes" comment="Merge remote-tracking branch 'origin/main'">
-      <change afterPath="$PROJECT_DIR$/src/test/resources/features/Product.feature" afterDir="false" />
+    <list default="true" id="5d53cca9-deb9-4429-8c76-a7fcddae412a" name="Changes" comment="massive update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/pages/ProductPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/pages/ProductPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/steps/Hooks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/steps/Hooks.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/steps/ProductPageSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/steps/ProductPageSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/pages/SearchResultsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/pages/SearchResultsPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/steps/SearchResultSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/steps/SearchResultSteps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/utils/DriverManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/utils/DriverManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/Filter.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/Filter.feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,37 +37,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Cucumber Java.Scenario: Verify cart price.executor": "Run",
-    "Cucumber Java.Scenario: Verify customer review filtering.executor": "Run",
-    "Cucumber Java.Scenario: Verify next and previous button working.executor": "Run",
-    "Cucumber Java.Scenario: Verify size selector functionality.executor": "Run",
-    "Cucumber Java.Scenario: Verify the average product rating.executor": "Run",
-    "Cucumber Java.Scenario: Verify the product rating.executor": "Run",
-    "Cucumber Java.Scenario: Verify user can remove the product from the cart.executor": "Run",
-    "Cucumber Java.Scenario: Verify user can search a product.executor": "Run",
-    "Cucumber Java.Scenario: Verify user can sort the product price from high to low.executor": "Run",
-    "Cucumber Java.Scenario: Verify user can sort the product price from low to high.executor": "Run",
-    "Cucumber Java.Scenario: Verify user can use add to cart functionality.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/UST_Java/CapStoneProject/src/test/java/com/automation/steps",
-    "onboarding.tips.debug.path": "C:/UST_Java/CapStoneProject/src/main/java/org/example/Main.java"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Cucumber Java.Feature: Filter.executor&quot;: &quot;Run&quot;,
+    &quot;Cucumber Java.Scenario: Verify cart price for multiple items.executor&quot;: &quot;Run&quot;,
+    &quot;Cucumber Java.Scenario: Verify cart price.executor&quot;: &quot;Run&quot;,
+    &quot;Cucumber Java.Scenario: Verify clickable.executor&quot;: &quot;Run&quot;,
+    &quot;Cucumber Java.Scenario: Verify next and previous button working.executor&quot;: &quot;Run&quot;,
+    &quot;Cucumber Java.Scenario: Verify user can filter by gender.executor&quot;: &quot;Run&quot;,
+    &quot;Cucumber Java.Scenario: Verify user can remove filters.executor&quot;: &quot;Run&quot;,
+    &quot;Cucumber Java.Scenario: Verify user can remove the product from the cart.executor&quot;: &quot;Run&quot;,
+    &quot;Cucumber Java.Scenario: Verify user can search a product.executor&quot;: &quot;Run&quot;,
+    &quot;Cucumber Java.Scenario: Verify user can sort the product price from high to low.executor&quot;: &quot;Run&quot;,
+    &quot;Cucumber Java.Scenario: Verify user can sort the product price from low to high.executor&quot;: &quot;Run&quot;,
+    &quot;Cucumber Java.Scenario: Verify user can use add to cart functionality.executor&quot;: &quot;Run&quot;,
+    &quot;Cucumber Java.Scenario: check if valid phone number otp send.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/UST_Java/CapStoneProject/src/test/java/com/automation/steps&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/UST_Java/CapStoneProject/src/main/java/org/example/Main.java&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="Cucumber Java.Scenario: Verify customer review filtering">
-    <configuration name="Scenario: Verify customer review filtering" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+}</component>
+  <component name="RunManager" selected="Cucumber Java.Feature: Filter">
+    <configuration name="Feature: Filter" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/Product.feature" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/Filter.feature" />
       <option name="GLUE" value="com.automation.steps" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="CapStoneProject" />
-      <option name="NAME_FILTER" value="^Verify customer review filtering$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify customer review filtering$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: Verify customer review filtering" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
+      <option name="SUGGESTED_NAME" value="Feature: Filter" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -82,35 +80,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Scenario: Verify next and previous button working" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/Search.feature" />
-      <option name="GLUE" value="com.automation.steps" />
-      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
-      <module name="CapStoneProject" />
-      <option name="NAME_FILTER" value="^Verify next and previous button working$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify next and previous button working$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: Verify next and previous button working" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="io.cucumber.core.cli.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Scenario: Verify size selector functionality" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+    <configuration name="Scenario: Verify cart price for multiple items" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/Cart.feature" />
       <option name="GLUE" value="com.automation.steps" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="CapStoneProject" />
-      <option name="NAME_FILTER" value="^Verify size selector functionality$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify size selector functionality$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: Verify size selector functionality" />
+      <option name="NAME_FILTER" value="^Verify cart price for multiple items$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify cart price for multiple items$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Verify cart price for multiple items" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -122,15 +100,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Scenario: Verify the average product rating" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+    <configuration name="Scenario: Verify user can filter by gender" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/Product.feature" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/Filter.feature" />
       <option name="GLUE" value="com.automation.steps" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="CapStoneProject" />
-      <option name="NAME_FILTER" value="^Verify the average product rating$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify the average product rating$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: Verify the average product rating" />
+      <option name="NAME_FILTER" value="^Verify user can filter by gender$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify user can filter by gender$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Verify user can filter by gender" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -142,15 +120,35 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Scenario: Verify the product rating" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+    <configuration name="Scenario: Verify user can remove filters" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/Product.feature" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/Filter.feature" />
       <option name="GLUE" value="com.automation.steps" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="CapStoneProject" />
-      <option name="NAME_FILTER" value="^Verify the product rating$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify the product rating$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: Verify the product rating" />
+      <option name="NAME_FILTER" value="^Verify user can remove filters$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify user can remove filters$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Verify user can remove filters" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Scenario: Verify user can search a product" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/Search.feature" />
+      <option name="GLUE" value="com.automation.steps" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="CapStoneProject" />
+      <option name="NAME_FILTER" value="^Verify user can search a product$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify user can search a product$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Verify user can search a product" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -164,11 +162,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Cucumber Java.Scenario: Verify customer review filtering" />
-        <item itemvalue="Cucumber Java.Scenario: Verify the average product rating" />
-        <item itemvalue="Cucumber Java.Scenario: Verify the product rating" />
-        <item itemvalue="Cucumber Java.Scenario: Verify size selector functionality" />
-        <item itemvalue="Cucumber Java.Scenario: Verify next and previous button working" />
+        <item itemvalue="Cucumber Java.Feature: Filter" />
+        <item itemvalue="Cucumber Java.Scenario: Verify user can filter by gender" />
+        <item itemvalue="Cucumber Java.Scenario: Verify user can remove filters" />
+        <item itemvalue="Cucumber Java.Scenario: Verify user can search a product" />
+        <item itemvalue="Cucumber Java.Scenario: Verify cart price for multiple items" />
       </list>
     </recent_temporary>
   </component>
@@ -269,21 +267,21 @@
       <option name="project" value="LOCAL" />
       <updated>1724143495635</updated>
     </task>
-    <task id="LOCAL-00012" summary="Merge remote-tracking branch 'origin/main'">
+    <task id="LOCAL-00012" summary="code edited">
       <option name="closed" value="true" />
-      <created>1724146121926</created>
+      <created>1724147532062</created>
       <option name="number" value="00012" />
       <option name="presentableId" value="LOCAL-00012" />
       <option name="project" value="LOCAL" />
-      <updated>1724146121926</updated>
+      <updated>1724147532062</updated>
     </task>
-    <task id="LOCAL-00013" summary="Merge remote-tracking branch 'origin/main'">
+    <task id="LOCAL-00013" summary="massive update">
       <option name="closed" value="true" />
-      <created>1724308057306</created>
+      <created>1724307875311</created>
       <option name="number" value="00013" />
       <option name="presentableId" value="LOCAL-00013" />
       <option name="project" value="LOCAL" />
-      <updated>1724308057306</updated>
+      <updated>1724307875311</updated>
     </task>
     <option name="localTasksCounter" value="14" />
     <servers />
@@ -303,7 +301,10 @@
     <MESSAGE value="Implemented search method" />
     <MESSAGE value="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/test/java/com/automation/pages/BasePage.java&#10;#&#9;src/test/java/com/automation/steps/HomeStep.java" />
     <MESSAGE value="Merge remote-tracking branch 'origin/main'" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/main'" />
+    <MESSAGE value="scenario size added" />
+    <MESSAGE value="code edited" />
+    <MESSAGE value="massive update" />
+    <option name="LAST_COMMIT_MESSAGE" value="massive update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
