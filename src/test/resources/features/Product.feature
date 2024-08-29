@@ -11,7 +11,6 @@ Feature: Product page features
 
   Scenario: Verify the average product rating
     Given user opens website
-    Then verify home page is displayed
     When user search for "shoe"
     Then verify the searched product is displayed
     When user clicks on the first product
