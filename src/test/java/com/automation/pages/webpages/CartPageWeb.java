@@ -1,12 +1,13 @@
-package com.automation.pages;
+package com.automation.pages.webpages;
 
+import com.automation.pages.interfaces.CartPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CartPage extends BasePage{
+public class CartPageWeb extends BasePageWeb implements CartPage {
     @FindBy(xpath = "//span[text()='1/1 ITEMS SELECTED']")
     WebElement cartItem;
 
@@ -60,8 +61,8 @@ public class CartPage extends BasePage{
      static int price;
     public void getPriceOnProductPage() {
         String p=pdpPrice.getText().replaceAll("\\D","").trim();
-        CartPage.price+=Integer.parseInt(p);
-        System.out.println(CartPage.price);
+        CartPageWeb.price+=Integer.parseInt(p);
+        System.out.println(CartPageWeb.price);
         doScroll(300);
         selectSize.click();
         addToCartButton.click();
@@ -72,10 +73,10 @@ public class CartPage extends BasePage{
         String discount=cartDiscount.getText().replaceAll("\\D","").trim();
         int mrpInt=Integer.parseInt(mrp);
         int discountInt=Integer.parseInt(discount);
-        System.out.println(mrpInt-discountInt +" "+CartPage.price);
-        return CartPage.price==mrpInt-discountInt;
+        System.out.println(mrpInt-discountInt +" "+ CartPageWeb.price);
+        return CartPageWeb.price==mrpInt-discountInt;
     }
-    ProductPage productPage=new ProductPage();
+    ProductPageWeb productPage=new ProductPageWeb();
 
 
     public boolean checkSizesAdded(){

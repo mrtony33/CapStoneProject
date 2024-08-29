@@ -1,4 +1,4 @@
-package com.automation.pages;
+package com.automation.pages.webpages;
 
 
 import com.automation.utils.ConfigReader;
@@ -9,10 +9,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import java.util.Set;
 
-public class BasePage {
+public class BasePageWeb {
     WebDriver driver;
     JavascriptExecutor jse;
-    BasePage(){
+    BasePageWeb(){
         driver=DriverManager.getDriver();
         ConfigReader.initConfig();
         PageFactory.initElements(driver,this);

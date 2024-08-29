@@ -32,7 +32,6 @@ Feature: Cart Features
 
 
 
-
   Scenario: Verify size selector functionality
     Given user opens website
     When user search for "shirt"

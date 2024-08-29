@@ -1,5 +1,6 @@
-package com.automation.pages;
+package com.automation.pages.webpages;
 
+import com.automation.pages.interfaces.SortPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -7,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SortPage extends  BasePage {
+public class SortPageWeb extends BasePageWeb implements SortPage {
 
     @FindBy(xpath = "//div[@class='sort-sortBy']")
      WebElement dropdown;

@@ -1,6 +1,7 @@
 package com.automation.steps;
 
-import com.automation.pages.ProductPage;
+import com.automation.pages.interfaces.ProductPage;
+import com.automation.pages.webpages.ProductPageWeb;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -8,7 +9,7 @@ import org.junit.Assert;
 
 
 public class ProductPageSteps {
-    ProductPage productPage=new ProductPage();
+    ProductPage productPage=new ProductPageWeb();
     @Then("verify product page is displayed")
     public void verify_product_page_is_displayed() {
         Assert.assertTrue(productPage.isPageDisplayed());

@@ -1,10 +1,11 @@
-package com.automation.pages;
+package com.automation.pages.webpages;
 
+import com.automation.pages.interfaces.HomePage;
 import com.automation.utils.ConfigReader;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class HomePage extends BasePage{
+public class HomePageWeb extends BasePageWeb implements HomePage {
     @FindBy(xpath = "//input[contains(@placeholder,'Search')]")
     WebElement searchInput;
     @FindBy(xpath = "//a[contains(@class,'submit')]")

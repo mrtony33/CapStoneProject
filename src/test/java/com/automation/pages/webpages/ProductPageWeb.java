@@ -1,11 +1,12 @@
-package com.automation.pages;
+package com.automation.pages.webpages;
 
+import com.automation.pages.interfaces.ProductPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import java.util.List;
 
-public class ProductPage extends BasePage{
+public class ProductPageWeb extends BasePageWeb implements ProductPage {
     @FindBy(xpath = "(//button[contains(@class,'size-buttons-size-button ')])[1]")
     WebElement selectSize;
 
@@ -49,7 +50,7 @@ public class ProductPage extends BasePage{
         return isDisplayed(selectSize);
     }
     public void doAddToCart() {
-        switchHandles();
+        //switchHandles();
         doScroll(300);
         selectSize.click();
         addToCartButton.click();
@@ -60,11 +61,11 @@ public class ProductPage extends BasePage{
 
 
     public boolean isProductDisplayed() {
-        return productTitle.getText().contains("Shoe");
+
+        return productTitle.getText().contains("Shirt");
     }
 
     public void selectAllAvailableSizes() {
-        switchHandles();
         doScroll(300);
         System.out.println(sizes.size());
         for (WebElement i:sizes){
