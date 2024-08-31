@@ -1,14 +1,21 @@
  package com.automation.steps;
 
-import com.automation.pages.interfaces.CartPage;
-import com.automation.pages.webpages.CartPageWeb;
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
-import org.junit.Assert;
+ import com.automation.pages.interfaces.CartPage;
+ import com.automation.pages.webpages.CartPageWeb;
+ import com.automation.utils.ConfigReader;
+ import io.cucumber.java.en.And;
+ import io.cucumber.java.en.Then;
+ import io.cucumber.java.en.When;
+ import org.junit.Assert;
 
 public class CartSteps {
-    CartPage cartPage=new CartPageWeb();
+    CartPage cartPage;
+
+    public CartSteps() {
+        if (ConfigReader.getProperty("automation.type").equals("web")){
+            cartPage=new CartPageWeb();
+        }
+    }
 
     @Then("verify that item is added to cart")
     public void verify_that_item_is_added_to_cart() {
