@@ -20,12 +20,12 @@ Feature: Cart Features
     When user removes the item from the cart
     Then verify that item is removed from the cart
 
-
+#fail
   Scenario: Verify cart price for multiple items
     Given user opens website
     When user search for "shirt"
     Then verify search results is not empty
-    When user adds first "1" elements to cart
+    When user adds first "3" elements to cart
     And go to cart page
 #    have to implement to check price of shipping and others too
     Then verify the price in the cart page
