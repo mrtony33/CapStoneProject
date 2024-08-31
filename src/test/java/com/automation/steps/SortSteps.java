@@ -29,7 +29,7 @@ public class SortSteps {
         List<Integer> checkSortedList=new ArrayList<>(sortedPriceList);
         Collections.sort(checkSortedList);
         Collections.reverse(checkSortedList);
-        Assert.assertEquals(sortedPriceList,checkSortedList);
+        Assert.assertArrayEquals(sortedPriceList.toArray(),checkSortedList.toArray());
     }
 
     @Then("verify the product is sorted from low to high")
