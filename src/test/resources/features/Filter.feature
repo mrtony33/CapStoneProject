@@ -13,6 +13,7 @@ Feature: Do filtering and verify functionality of radio,checkbox and dropdown
       | women   |
       | men     |
 
+    #fail
   Scenario Outline: Verify user can filter by discount
     Given user opens website
     Then verify home page is displayed
@@ -26,6 +27,7 @@ Feature: Do filtering and verify functionality of radio,checkbox and dropdown
       | 50      |
 
 
+    #fail
   Scenario: Verify user can remove filters
     Given user opens website
     Then verify home page is displayed

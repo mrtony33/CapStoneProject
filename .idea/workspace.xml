@@ -6,6 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="5d53cca9-deb9-4429-8c76-a7fcddae412a" name="Changes" comment="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/pages/webpages/SearchResultsPageWeb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/pages/webpages/SearchResultsPageWeb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/steps/Hooks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/steps/Hooks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/config/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/config/config.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +56,7 @@
     &quot;Cucumber Java.Scenario: Verify the average product rating.executor&quot;: &quot;Run&quot;,
     &quot;Cucumber Java.Scenario: Verify the product pricing.executor&quot;: &quot;Run&quot;,
     &quot;Cucumber Java.Scenario: Verify the product rating.executor&quot;: &quot;Run&quot;,
+    &quot;Cucumber Java.Scenario: Verify user can filter by discount.executor&quot;: &quot;Run&quot;,
     &quot;Cucumber Java.Scenario: Verify user can filter by gender.executor&quot;: &quot;Run&quot;,
     &quot;Cucumber Java.Scenario: Verify user can remove filters.executor&quot;: &quot;Run&quot;,
     &quot;Cucumber Java.Scenario: Verify user can remove the product from the cart.executor&quot;: &quot;Run&quot;,
@@ -80,7 +84,26 @@
       <recent name="com.automation.pages.webpages" />
     </key>
   </component>
-  <component name="RunManager" selected="Cucumber Java.Scenario: Verify cart price for multiple items">
+  <component name="RunManager" selected="Cucumber Java.Scenario: Verify size selector functionality">
+    <configuration name="Feature: Cart" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/Cart.feature" />
+      <option name="GLUE" value="com.automation.steps" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="CapStoneProject" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
+      <option name="SUGGESTED_NAME" value="Feature: Cart" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Feature: Sort" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/Sort.feature" />
@@ -100,14 +123,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Scenario: Verify cart price for multiple items" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+    <configuration name="Scenario: Verify size selector functionality" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/Cart.feature" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="CapStoneProject" />
-      <option name="NAME_FILTER" value="^Verify cart price for multiple items$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify cart price for multiple items$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: Verify cart price for multiple items" />
+      <option name="NAME_FILTER" value="^Verify size selector functionality$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify size selector functionality$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Verify size selector functionality" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -139,15 +162,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Scenario: Verify user can use add to cart functionality" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+    <configuration name="Scenario: Verify user can sort the product price from high to low" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/Cart.feature" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/Sort.feature" />
       <option name="GLUE" value="com.automation.steps" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="CapStoneProject" />
-      <option name="NAME_FILTER" value="^Verify user can use add to cart functionality$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify user can use add to cart functionality$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: Verify user can use add to cart functionality" />
+      <option name="NAME_FILTER" value="^Verify user can sort the product price from high to low$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify user can sort the product price from high to low$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Verify user can sort the product price from high to low" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -159,28 +182,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestRunner" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="CapStoneProject" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.automation.runners.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.automation.runners" />
-      <option name="MAIN_CLASS_NAME" value="com.automation.runners.TestRunner" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Cucumber Java.Scenario: Verify cart price for multiple items" />
-        <item itemvalue="Cucumber Java.Scenario: Verify user can filter by gender" />
-        <item itemvalue="JUnit.TestRunner" />
-        <item itemvalue="Cucumber Java.Scenario: Verify user can use add to cart functionality" />
+        <item itemvalue="Cucumber Java.Scenario: Verify size selector functionality" />
+        <item itemvalue="Cucumber Java.Scenario: Verify user can sort the product price from high to low" />
         <item itemvalue="Cucumber Java.Feature: Sort" />
+        <item itemvalue="Cucumber Java.Scenario: Verify user can filter by gender" />
+        <item itemvalue="Cucumber Java.Feature: Cart" />
       </list>
     </recent_temporary>
   </component>
@@ -393,7 +401,23 @@
       <option name="project" value="LOCAL" />
       <updated>1725080582430</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
+      <option name="closed" value="true" />
+      <created>1725081244822</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1725081244822</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
+      <option name="closed" value="true" />
+      <created>1725081314568</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1725081314568</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
