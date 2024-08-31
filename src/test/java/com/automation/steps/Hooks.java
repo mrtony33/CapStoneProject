@@ -12,12 +12,13 @@ public class Hooks {
     @Before
     public void setup(Scenario sc){
         CucumberReportManager.initScenario(sc);
-        DriverManager.initDriver();
         ConfigReader.initConfig();
+        DriverManager.initDriver();
     }
 
     @After
     public void cleanup(){
+
         DriverManager.getDriver().quit();
     }
 

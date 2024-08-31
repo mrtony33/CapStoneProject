@@ -1,13 +1,14 @@
 package com.automation.steps;
 
-import com.automation.pages.HomePage;
+import com.automation.pages.interfaces.HomePage;
+import com.automation.pages.webpages.HomePageWeb;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
 public class HomeStep {
-        HomePage homePage=new HomePage();
+        HomePage homePage=new HomePageWeb();
         @Given("user opens website")
         public void user_opens_website() {
             homePage.openWebsite();
@@ -22,7 +23,4 @@ public class HomeStep {
         public void verifyHomePageIsDisplayed() {
                 Assert.assertTrue(homePage.isHomePageDisplayed());
         }
-
-
-
 }

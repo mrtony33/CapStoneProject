@@ -1,23 +1,22 @@
 package com.automation.steps;
 
-import com.automation.pages.SortPage;
+import com.automation.pages.interfaces.SortPage;
+import com.automation.pages.webpages.SortPageWeb;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class SortSteps {
 
-    SortPage sortPage=new SortPage();
+    SortPage sortPage=new SortPageWeb();
 
     @And("user sort the price from high to low")
     public void userSortThePriceFromHighToLow() {
         sortPage.sortThePriceHighToLow();
     }
-
 
     @And("user sort the price from low to high")
     public void userSortThePriceFromLowToHigh() {

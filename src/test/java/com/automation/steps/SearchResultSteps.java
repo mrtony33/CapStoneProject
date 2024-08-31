@@ -1,13 +1,14 @@
 package com.automation.steps;
 
-import com.automation.pages.SearchResultsPage;
+import com.automation.pages.interfaces.SearchResultPage;
+import com.automation.pages.webpages.SearchResultsPageWeb;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
 public class SearchResultSteps {
-    SearchResultsPage searchResultsPage=new SearchResultsPage();
+    SearchResultPage searchResultsPage=new SearchResultsPageWeb();
 
     @When("click on the first result")
     public void click_on_the_first_result() {
@@ -55,4 +56,5 @@ public class SearchResultSteps {
     public void verifyFilterIsRemoved() {
         Assert.assertTrue(searchResultsPage.removeFilterSuccess());
     }
+
 }
