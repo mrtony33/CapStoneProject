@@ -2,13 +2,21 @@ package com.automation.steps;
 
 import com.automation.pages.interfaces.SearchResultPage;
 import com.automation.pages.webpages.SearchResultsPageWeb;
+import com.automation.utils.ConfigReader;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
 public class SearchResultSteps {
-    SearchResultPage searchResultsPage=new SearchResultsPageWeb();
+    SearchResultPage searchResultsPage;
+
+    public SearchResultSteps() {
+        if (ConfigReader.getProperty("automation.type").equals("web")){
+            searchResultsPage=new SearchResultsPageWeb();
+        }
+    }
+
 
     @When("click on the first result")
     public void click_on_the_first_result() {

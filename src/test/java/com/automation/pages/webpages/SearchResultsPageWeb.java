@@ -1,6 +1,8 @@
 package com.automation.pages.webpages;
 
+import com.automation.pages.interfaces.CartPage;
 import com.automation.pages.interfaces.SearchResultPage;
+import com.automation.utils.ConfigReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,9 +15,17 @@ public class SearchResultsPageWeb extends BasePageWeb implements SearchResultPag
     WebElement cartIcon;
     @FindBy(xpath = "//span[text()='CLEAR ALL']")
     WebElement clearAllFilters;
-    String filter;
-    CartPageWeb cartPage=new CartPageWeb();
 
+    String filter;
+
+
+    CartPage cartPage;
+
+    public SearchResultsPageWeb() {
+        if (ConfigReader.getProperty("automation.type").equals("web")){
+            cartPage=new CartPageWeb();
+        }
+    }
     public void selectMany(int totalItemsToBeAdded) {
         for (int i = 0; i < totalItemsToBeAdded; i++) {
             searchResults.get(i).click();
@@ -41,7 +51,11 @@ public class SearchResultsPageWeb extends BasePageWeb implements SearchResultPag
     WebElement radio;
 
     public void doFilter(String filterKey) {
-        radio = driver.findElement(By.xpath(String.format("//input[contains(@value,'%s.')]", filterKey)));
+        try {
+            radio = driver.findElement(By.xpath(String.format("//input[contains(@value,'%s.')]", filterKey)));
+        }catch (Exception e){
+            radio = driver.findElement(By.xpath(String.format("//input[contains(@value,'%s,')]", filterKey)));
+        }
         javascriptClicker(radio);
         filter = filterKey;
     }

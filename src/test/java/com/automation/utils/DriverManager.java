@@ -10,6 +10,7 @@ import java.time.Duration;
 public class DriverManager {
     static WebDriver driver;
 
+
     public static void initDriver() {
         if (ConfigReader.getProperty("automation.type").equals("web")) {
             driver = new ChromeDriver();
@@ -32,4 +33,5 @@ public class DriverManager {
     public static WebDriver getDriver(){
         return driver;
     }
+
 }

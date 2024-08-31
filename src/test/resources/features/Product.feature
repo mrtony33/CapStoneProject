@@ -17,7 +17,7 @@ Feature: Product page features
     And get the average rating based on the user review
     Then verify the average product rating is displayed correctly
 
-#fail
+
    Scenario Outline: Verify customer review filtering
      Given user opens website
      Then verify home page is displayed
