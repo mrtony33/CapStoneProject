@@ -1,6 +1,5 @@
 Feature: Sort the product
 
-  #fail
   Scenario: Verify user can sort the product price from high to low
     Given user opens website
     Then verify home page is displayed
