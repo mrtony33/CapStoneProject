@@ -33,8 +33,7 @@ public class ProductPage extends BasePage{
         return isDisplayed(selectSize);
     }
     public void doAddToCart() {
-        switchHandles();
-        doScroll(300);
+//        doScroll(300);
         selectSize.click();
         addToCartButton.click();
         if (isDisplayed(goToBag) && isDisplayed(cartIcon)) {
@@ -48,14 +47,13 @@ public class ProductPage extends BasePage{
     }
 
     public void selectAllAvailableSizes() {
-        switchHandles();
-        doScroll(300);
         System.out.println(sizes.size());
         for (WebElement i:sizes){
             jse.executeScript("arguments[0].click();", i);
             addToCartButton.click();
         }
     }
+
     int firstPageNumber;
     public void clickOnNextButton() {
         doScroll(300);

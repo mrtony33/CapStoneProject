@@ -13,7 +13,7 @@ Feature: Do filtering and verify functionality of radio,checkbox and dropdown
       | women   |
       | men     |
 
-  Scenario Outline: Verify user can filter by gender
+  Scenario Outline: Verify user can filter by discount
     Given user opens website
     Then verify home page is displayed
     When user search for "shoe"
