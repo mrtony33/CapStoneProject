@@ -50,7 +50,6 @@ public class ProductPageWeb extends BasePageWeb implements ProductPage {
         return isDisplayed(selectSize);
     }
     public void doAddToCart() {
-        //switchHandles();
         doScroll(300);
         selectSize.click();
         addToCartButton.click();
