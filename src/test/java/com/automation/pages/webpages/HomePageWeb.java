@@ -22,8 +22,10 @@ public class HomePageWeb extends BasePageWeb implements HomePage {
     }
 
     public void searchForItem(String item) {
-        searchInput.sendKeys(item);
-        searchButton.click();
+        if (searchInput.isDisplayed()) {
+            searchInput.sendKeys(item);
+            searchButton.click();
+        }
     }
 
     public boolean isHomePageDisplayed() {
