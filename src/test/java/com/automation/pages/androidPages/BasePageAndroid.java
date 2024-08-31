@@ -18,7 +18,7 @@ public class BasePageAndroid {
     WebDriverWait wait;
 
     BasePageAndroid() {
-        driver = DriverManager.getAndroidDriver();
+        driver = (AppiumDriver) DriverManager.getDriver();
         PageFactory.initElements(driver, this);
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }

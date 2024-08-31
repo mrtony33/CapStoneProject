@@ -13,7 +13,7 @@ public class BasePageWeb {
     WebDriver driver;
     JavascriptExecutor jse;
     BasePageWeb(){
-        driver=DriverManager.getWebDriver();
+        driver=DriverManager.getDriver();
         ConfigReader.initConfig();
         PageFactory.initElements(driver,this);
         jse = (JavascriptExecutor)driver;
