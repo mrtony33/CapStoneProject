@@ -1,9 +1,13 @@
-package com.automation.pages;
+package com.automation.pages.webpages;
+
+import com.automation.pages.interfaces.CartPage;
+import com.automation.pages.interfaces.SearchResultPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
 import java.util.List;
-public class SearchResultsPage extends BasePage {
+public class SearchResultsPageWeb extends BasePageWeb implements SearchResultPage {
     @FindBy(xpath = "//li[@class='product-base']")
     List<WebElement> searchResults;
     @FindBy(xpath = "//span[text()='Bag']")
@@ -14,7 +18,7 @@ public class SearchResultsPage extends BasePage {
     String filter;
 
 
-    CartPage cartPage = new CartPage();
+    CartPage cartPage;
 
 
     public void selectMany(int totalItemsToBeAdded) {

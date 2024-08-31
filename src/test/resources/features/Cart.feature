@@ -20,7 +20,7 @@ Feature: Cart Features
     When user removes the item from the cart
     Then verify that item is removed from the cart
 
-
+#fail
   Scenario: Verify cart price for multiple items
     Given user opens website
     When user search for "shirt"
