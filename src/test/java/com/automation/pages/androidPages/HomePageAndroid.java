@@ -12,14 +12,11 @@ public class HomePageAndroid extends BasePageAndroid implements HomePage {
     @FindBy(xpath = "//android.widget.Button[contains(@text,'LATER')]")
     WebElement permissionDeny;
 
-    @FindBy(xpath = "//android.view.ViewGroup[@content-desc='view_progress']")
-    WebElement dynamicPopup;
+    @FindBy(xpath = "//android.widget.LinearLayout/android.widget.FrameLayout")
+    WebElement popup;
 
     @FindBy(xpath = "//android.widget.ImageView[@content-desc='search']")
     WebElement searchButton;
-
-    @FindBy(xpath = "//android.widget.HorizontalScrollView[@content-desc=\"66d0f2c783e52c3581f6a850_carousal\"]/android.view.ViewGroup/android.view.ViewGroup[1]")
-    WebElement element;
 
 
 
@@ -28,28 +25,24 @@ public class HomePageAndroid extends BasePageAndroid implements HomePage {
     }
 
     public void searchForItem(String item) {
-        if(isPresent(dynamicPopup)){
-            dynamicPopup.click();
-        }
-//        if (searchButton.isDisplayed()) {
-//            searchButton.click();
-//            searchInput.sendKeys(item);
-//            searchInput.click();
-//            driver.executeScript("mobile:performEditorAction", ImmutableMap.of("action", "search"));
-//        }
-        element.click();
-        searchButton.click();
-           searchInput.sendKeys(item);
+
+        try {
+            searchButton.click();
+            searchInput.sendKeys(item);
             searchInput.click();
             driver.executeScript("mobile:performEditorAction", ImmutableMap.of("action", "search"));
-
-
+        } catch (Exception e) {
+            popup.click();
+            searchButton.click();
+            searchInput.sendKeys(item);
+            driver.executeScript("mobile:performEditorAction", ImmutableMap.of("action", "search"));
+        }
 
     }
 
+
     public boolean isHomePageDisplayed() {
-       // return  searchButton.isDisplayed();
-        return  true;
+        return  popup.isDisplayed();
     }
 
 }

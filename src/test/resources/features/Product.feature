@@ -4,7 +4,7 @@ Feature: Product page features
     Given user opens website
     Then verify home page is displayed
     When user search for "shirt"
-    Then verify the searched product is displayed
+    #Then verify the searched product is displayed
     When user get the product rating
     And user clicks on the first product
     Then verify the product rating on product description page

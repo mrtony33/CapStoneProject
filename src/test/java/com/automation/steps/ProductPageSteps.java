@@ -1,8 +1,11 @@
 package com.automation.steps;
 
 import com.automation.pages.androidPages.ProductPageAndroid;
+import com.automation.pages.androidPages.SearchResultsPageAndroid;
 import com.automation.pages.interfaces.ProductPage;
+import com.automation.pages.interfaces.SearchResultPage;
 import com.automation.pages.webpages.ProductPageWeb;
+import com.automation.pages.webpages.SearchResultsPageWeb;
 import com.automation.utils.ConfigReader;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -11,12 +14,15 @@ import org.junit.Assert;
 
 
 public class ProductPageSteps {
+    SearchResultPage searchResultPage;
     ProductPage productPage;
-    ProductPageSteps(){
+   public ProductPageSteps(){
         if (ConfigReader.getProperty("automation.type").equals("web")){
+            searchResultPage=new SearchResultsPageWeb();
             productPage=new ProductPageWeb();
         }else {
             productPage=new ProductPageAndroid();
+            searchResultPage=new SearchResultsPageAndroid();
         }
     }
     @Then("verify product page is displayed")
@@ -31,7 +37,7 @@ public class ProductPageSteps {
 
     @Then("verify the searched product is displayed")
     public void verifyTheSearchedProductIsDisplayed() {
-        Assert.assertTrue(productPage.isProductDisplayed());
+        Assert.assertTrue(searchResultPage.isProductDisplayed());
     }
 
     @When("user clicks on next button")
