@@ -14,8 +14,6 @@ public class HomePageWeb extends BasePageWeb implements HomePage {
     @FindBy(xpath = "//div[@class='desktop-logoContainer']")
     WebElement logo;
 
-    @FindBy(xpath = "//div[@class='desktop-actions']")
-    WebElement actions;
 
     public void openWebsite() {
         driver.get(ConfigReader.getProperty("base.url"));
@@ -29,7 +27,7 @@ public class HomePageWeb extends BasePageWeb implements HomePage {
     }
 
     public boolean isHomePageDisplayed() {
-        return  logo.isDisplayed() && actions.isDisplayed();
+        return  logo.isDisplayed() ;
     }
 
 

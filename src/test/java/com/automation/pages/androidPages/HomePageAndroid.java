@@ -37,7 +37,6 @@ public class HomePageAndroid extends BasePageAndroid implements HomePage {
             searchInput.sendKeys(item);
             driver.executeScript("mobile:performEditorAction", ImmutableMap.of("action", "search"));
         }
-
     }
 
 

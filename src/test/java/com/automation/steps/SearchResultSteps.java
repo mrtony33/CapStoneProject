@@ -1,5 +1,6 @@
 package com.automation.steps;
 
+import com.automation.pages.androidPages.SearchResultsPageAndroid;
 import com.automation.pages.interfaces.SearchResultPage;
 import com.automation.pages.webpages.SearchResultsPageWeb;
 import com.automation.utils.ConfigReader;
@@ -14,6 +15,8 @@ public class SearchResultSteps {
     public SearchResultSteps() {
         if (ConfigReader.getProperty("automation.type").equals("web")){
             searchResultsPage=new SearchResultsPageWeb();
+        }else {
+            searchResultsPage=new SearchResultsPageAndroid();
         }
     }
 
