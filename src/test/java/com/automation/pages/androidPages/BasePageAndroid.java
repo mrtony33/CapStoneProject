@@ -30,7 +30,7 @@ public class BasePageAndroid {
         } catch (Exception e) {
             return false;
         } finally {
-            setImplicitWait(30);
+            setImplicitWait(20);
         }
     }
 
