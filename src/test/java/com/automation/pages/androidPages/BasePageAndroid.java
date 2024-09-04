@@ -60,7 +60,6 @@ public class BasePageAndroid {
                 .addAction(new Pause(finger1, Duration.ofSeconds(2)))
                 .addAction(finger1.createPointerMove(Duration.ofSeconds(1), PointerInput.Origin.viewport(), endX, endY))
                 .addAction(finger1.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
-
         driver.perform(Collections.singletonList(sequence));
     }
 }

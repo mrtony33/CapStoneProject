@@ -30,4 +30,7 @@ public interface SearchResultPage {
         return  false;
     }
 
+    default boolean isProductDisplayed(){
+        return false;
+    }
 }
