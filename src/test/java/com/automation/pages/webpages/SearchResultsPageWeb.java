@@ -15,11 +15,12 @@ public class SearchResultsPageWeb extends BasePageWeb implements SearchResultPag
     WebElement cartIcon;
     @FindBy(xpath = "//span[text()='CLEAR ALL']")
     WebElement clearAllFilters;
+
     @FindBy(xpath = "//h1[@class='title-title']")
-    WebElement productTitle;
+    WebElement SearchTitle;
 
     String filter;
-    String searchKey;
+    public static String searchKey;
 
 
     CartPage cartPage;
@@ -40,7 +41,7 @@ public class SearchResultsPageWeb extends BasePageWeb implements SearchResultPag
     }
 
     public boolean isProductDisplayed() {
-        return productTitle.getText().contains(searchKey);
+        return SearchTitle.getText().toLowerCase().contains(searchKey);
     }
     public void clickFirstResult() {
         searchResults.get(0).click();
