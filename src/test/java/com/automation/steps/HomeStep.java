@@ -27,6 +27,7 @@ public class HomeStep {
         @When("user search for {string}")
         public void user_search_for(String item) {
             homePage.searchForItem(item);
+
         }
 
         @Then("verify home page is displayed")

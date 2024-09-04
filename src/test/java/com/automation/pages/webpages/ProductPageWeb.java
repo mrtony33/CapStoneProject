@@ -18,8 +18,7 @@ public class ProductPageWeb extends BasePageWeb implements ProductPage {
     WebElement goToBag;
     @FindBy(xpath = "//span[contains(@class,'desktop-badge')]")
     WebElement cartIcon;
-    @FindBy(xpath = "//h1[@class='title-title']")
-    WebElement productTitle;
+
     @FindBy(xpath = "//li[@class='pagination-next']")
     WebElement nextButton;
     @FindBy(xpath = "//li[@class='pagination-paginationMeta']")
@@ -60,10 +59,7 @@ public class ProductPageWeb extends BasePageWeb implements ProductPage {
     }
 
 
-    public boolean isProductDisplayed() {
 
-        return productTitle.getText().contains("Shirt");
-    }
 
     public void selectAllAvailableSizes() {
         doScroll(300);

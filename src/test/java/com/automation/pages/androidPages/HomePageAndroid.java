@@ -12,6 +12,9 @@ public class HomePageAndroid extends BasePageAndroid implements HomePage {
     @FindBy(xpath = "//android.widget.Button[contains(@text,'LATER')]")
     WebElement permissionDeny;
 
+    @FindBy(xpath = "//android.widget.LinearLayout/android.widget.FrameLayout")
+    WebElement popup;
+
     @FindBy(xpath = "//android.widget.ImageView[@content-desc='search']")
     WebElement searchButton;
 
@@ -22,16 +25,23 @@ public class HomePageAndroid extends BasePageAndroid implements HomePage {
     }
 
     public void searchForItem(String item) {
-        if (searchButton.isDisplayed()) {
+
+        try {
             searchButton.click();
             searchInput.sendKeys(item);
             searchInput.click();
             driver.executeScript("mobile:performEditorAction", ImmutableMap.of("action", "search"));
+        } catch (Exception e) {
+            popup.click();
+            searchButton.click();
+            searchInput.sendKeys(item);
+            driver.executeScript("mobile:performEditorAction", ImmutableMap.of("action", "search"));
         }
     }
 
+
     public boolean isHomePageDisplayed() {
-        return  searchButton.isDisplayed();
+        return  popup.isDisplayed();
     }
 
 }

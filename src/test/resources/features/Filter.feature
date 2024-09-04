@@ -36,5 +36,3 @@ Feature: Do filtering and verify functionality of radio,checkbox and dropdown
     When user removes filter
     Then verify filter is removed
 
-  Scenario: Verify user can remove filters
-    Given user opens website
