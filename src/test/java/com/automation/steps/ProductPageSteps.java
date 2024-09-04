@@ -1,7 +1,9 @@
 package com.automation.steps;
 
+import com.automation.pages.androidPages.ProductPageAndroid;
 import com.automation.pages.interfaces.ProductPage;
 import com.automation.pages.webpages.ProductPageWeb;
+import com.automation.utils.ConfigReader;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -9,7 +11,14 @@ import org.junit.Assert;
 
 
 public class ProductPageSteps {
-    ProductPage productPage=new ProductPageWeb();
+    ProductPage productPage;
+    ProductPageSteps(){
+        if (ConfigReader.getProperty("automation.type").equals("web")){
+            productPage=new ProductPageWeb();
+        }else {
+            productPage=new ProductPageAndroid();
+        }
+    }
     @Then("verify product page is displayed")
     public void verify_product_page_is_displayed() {
         Assert.assertTrue(productPage.isPageDisplayed());

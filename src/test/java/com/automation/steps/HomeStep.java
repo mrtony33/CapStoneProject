@@ -1,5 +1,6 @@
 package com.automation.steps;
 
+import com.automation.pages.androidPages.HomePageAndroid;
 import com.automation.pages.interfaces.HomePage;
 import com.automation.pages.webpages.HomePageWeb;
 import com.automation.utils.ConfigReader;
@@ -13,6 +14,8 @@ public class HomeStep {
         public HomeStep(){
                 if(ConfigReader.getProperty("automation.type").equals("web")){
                         homePage=new HomePageWeb();
+                }else {
+                        homePage=new HomePageAndroid();
                 }
         }
 
