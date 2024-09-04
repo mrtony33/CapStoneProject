@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import java.util.List;
 
 public class SearchResultsPageAndroid extends BasePageAndroid implements SearchResultPage {
-    String searchKey;
+    public static String searchKey;
 
     @FindBy(xpath = "(//android.widget.TextView[contains(@text,'Best Price')])[2]")
     WebElement item2ForScroll;
@@ -21,9 +21,7 @@ public class SearchResultsPageAndroid extends BasePageAndroid implements SearchR
 
     List<WebElement> searchResults;
 
-    public void setSearchKey(String key){
-        searchKey=key;
-    }
+
 
     public boolean checkResultsPresent() {
         int count=1;

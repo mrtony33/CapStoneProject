@@ -1,8 +1,10 @@
 package com.automation.steps;
 
 import com.automation.pages.androidPages.HomePageAndroid;
+import com.automation.pages.androidPages.SearchResultsPageAndroid;
 import com.automation.pages.interfaces.HomePage;
 import com.automation.pages.webpages.HomePageWeb;
+import com.automation.pages.webpages.SearchResultsPageWeb;
 import com.automation.utils.ConfigReader;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -27,7 +29,11 @@ public class HomeStep {
         @When("user search for {string}")
         public void user_search_for(String item) {
             homePage.searchForItem(item);
-
+            if (ConfigReader.getProperty("automation.type").equals("web")){
+                    SearchResultsPageWeb.searchKey=item;
+            }else {
+                    SearchResultsPageAndroid.searchKey=item;
+            }
         }
 
         @Then("verify home page is displayed")

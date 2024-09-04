@@ -1,6 +1,8 @@
 package com.automation.pages.androidPages;
 
 import com.automation.pages.interfaces.ProductPage;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -14,6 +16,10 @@ public class ProductPageAndroid extends BasePageAndroid implements ProductPage {
     List<WebElement> searchResults;
     @FindBy(xpath = "(//android.view.ViewGroup[@content-desc=\"ratings_pdp\"]/android.view.ViewGroup//android.widget.TextView)[1]")
     WebElement rate2;
+    @FindBy(xpath = "//android.view.ViewGroup[@content-desc=\"reviewsQnA\"]/android.view.ViewGroup[1]/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup")
+    WebElement reviewsButton;
+    @FindBy(xpath = "//android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.TextView")
+     WebElement averageRatingDisplayed;
 
     String rating1;
     public void getRating(){
@@ -27,5 +33,36 @@ public class ProductPageAndroid extends BasePageAndroid implements ProductPage {
         String rating2=rate2.getText();
         System.out.println(rating2);
         return rating1.equals(rating2);
+    }
+
+    float averageRatingCalculated;
+    public void calculateAverageRating(){
+        Dimension dimension = driver.manage().window().getSize();
+        int width = dimension.getWidth();
+        int height = dimension.getHeight();
+
+        while (!isPresent(reviewsButton)) {
+            scrollOrSwipe(width / 2, height / 2, width / 2, 0);
+        }
+        reviewsButton.click();
+        float sum=0;
+        int reviewers=0;
+        int star=5;
+        for(int i=1;i<=5;i++){
+            String s=driver.findElement(By.xpath(String.format("(//android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/android.widget.TextView[2])[%s]",i))).getText();
+            int rate=Integer.parseInt(s);
+            reviewers=reviewers+rate;
+            sum =sum+(star*rate);
+            star--;
+        }
+        averageRatingCalculated=sum/reviewers;
+        averageRatingCalculated= Math.round(averageRatingCalculated * 10f) /10f;
+        System.out.println(averageRatingCalculated);
+    }
+    public boolean verifyAverageRating(){
+        String s=averageRatingDisplayed.getText();
+        Float averageRating=Float.parseFloat(s);
+        System.out.println(averageRating);
+        return averageRating==averageRatingCalculated;
     }
 }

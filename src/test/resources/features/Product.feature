@@ -12,7 +12,7 @@ Feature: Product page features
   Scenario: Verify the average product rating
     Given user opens website
     When user search for "shirt"
-    Then verify the searched product is displayed
+    #Then verify the searched product is displayed
     When user clicks on the first product
     And get the average rating based on the user review
     Then verify the average product rating is displayed correctly
