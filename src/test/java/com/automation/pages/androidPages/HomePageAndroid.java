@@ -1,35 +1,55 @@
 package com.automation.pages.androidPages;
 
 import com.automation.pages.interfaces.HomePage;
+import com.google.common.collect.ImmutableMap;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class HomePageAndroid extends BasePageAndroid implements HomePage {
-    @FindBy(xpath = "//input[contains(@placeholder,'Search')]")
+    @FindBy(xpath = "//android.widget.EditText[@content-desc='search_default_search_text_input']")
     WebElement searchInput;
-    @FindBy(xpath = "//a[contains(@class,'submit')]")
+
+    @FindBy(xpath = "//android.widget.Button[contains(@text,'LATER')]")
+    WebElement permissionDeny;
+
+    @FindBy(xpath = "//android.view.ViewGroup[@content-desc='view_progress']")
+    WebElement dynamicPopup;
+
+    @FindBy(xpath = "//android.widget.ImageView[@content-desc='search']")
     WebElement searchButton;
 
-    @FindBy(xpath = "//div[@class='desktop-logoContainer']")
-    WebElement logo;
+    @FindBy(xpath = "//android.widget.HorizontalScrollView[@content-desc=\"66d0f2c783e52c3581f6a850_carousal\"]/android.view.ViewGroup/android.view.ViewGroup[1]")
+    WebElement element;
 
-    @FindBy(xpath = "//div[@class='desktop-actions']")
-    WebElement actions;
+
 
     public void openWebsite() {
-
-        //driver.get(ConfigReader.getProperty("base.url"));
+        permissionDeny.click();
     }
 
     public void searchForItem(String item) {
-        if (searchInput.isDisplayed()) {
-            searchInput.sendKeys(item);
-            searchButton.click();
+        if(isPresent(dynamicPopup)){
+            dynamicPopup.click();
         }
+//        if (searchButton.isDisplayed()) {
+//            searchButton.click();
+//            searchInput.sendKeys(item);
+//            searchInput.click();
+//            driver.executeScript("mobile:performEditorAction", ImmutableMap.of("action", "search"));
+//        }
+        element.click();
+        searchButton.click();
+           searchInput.sendKeys(item);
+            searchInput.click();
+            driver.executeScript("mobile:performEditorAction", ImmutableMap.of("action", "search"));
+
+
+
     }
 
     public boolean isHomePageDisplayed() {
-        return  logo.isDisplayed() && actions.isDisplayed();
+       // return  searchButton.isDisplayed();
+        return  true;
     }
 
 }

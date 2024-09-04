@@ -11,11 +11,11 @@ import org.junit.Assert;
 
 public class HomeStep {
         HomePage homePage;
-        public HomeStep() {
-                if (ConfigReader.getProperty("automation.type").equals("web")) {
-                        homePage = new HomePageWeb();
-                } else {
-                        homePage = new HomePageAndroid();
+        public HomeStep(){
+                if(ConfigReader.getProperty("automation.type").equals("web")){
+                        homePage=new HomePageWeb();
+                }else {
+                        homePage=new HomePageAndroid();
                 }
         }
 

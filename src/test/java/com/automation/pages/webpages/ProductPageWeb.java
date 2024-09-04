@@ -58,7 +58,6 @@ public class ProductPageWeb extends BasePageWeb implements ProductPage {
         }
     }
 
-
     public boolean isProductDisplayed() {
 
         return productTitle.getText().contains("Shirt");
