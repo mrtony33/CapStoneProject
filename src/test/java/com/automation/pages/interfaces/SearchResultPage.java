@@ -8,6 +8,7 @@ public interface SearchResultPage {
     default void clickFirstResult(){
 
     }
+
     default boolean checkResultsPresent(){
         return false;
     }
