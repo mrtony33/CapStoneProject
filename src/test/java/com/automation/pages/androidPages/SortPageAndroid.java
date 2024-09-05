@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class SortPageAndroid extends BasePageAndroid implements SortPage {
@@ -16,6 +17,8 @@ public class SortPageAndroid extends BasePageAndroid implements SortPage {
     WebElement highToLowSort;
     @FindBy(xpath = "//android.widget.TextView[@content-desc=\"text_sort_item-4\"]")
     WebElement lowToHighSort;
+    @FindBy(xpath = "//android.widget.TextView[@content-desc=\"text_sort_item-5\"]")
+    WebElement ratingSort;
 
     public void sortThePriceHighToLow(){
         sortButton.click();
@@ -52,5 +55,29 @@ public class SortPageAndroid extends BasePageAndroid implements SortPage {
         sortButton.click();
         lowToHighSort.click();
 
+    }
+    public void sortBasedOnRating(){
+        sortButton.click();
+        ratingSort.click();
+    }
+    public boolean verifyRatingSort(){
+        List<Float> ratings=new ArrayList<>();
+        for (int i=1;i<=3;i++){
+            List<WebElement> rates=driver.findElements(By.xpath("//android.view.ViewGroup[@content-desc=\"ratings_view_small\"]/android.widget.TextView[1]"));
+            for(WebElement e:rates) {
+                float n = Float.parseFloat(e.getText());
+                if (!ratings.contains(n)) {
+                    ratings.add(n);
+                }
+            }
+                Dimension dimension = driver.manage().window().getSize();
+                int width = dimension.getWidth();
+                int height = dimension.getHeight();
+                scrollOrSwipe(width / 2, height / 2, width / 2, 0);
+
+        }
+        List<Float> ratings2=new ArrayList<>(ratings);
+        Collections.sort(ratings2);
+        return ratings.equals(ratings2);
     }
 }

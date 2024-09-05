@@ -110,4 +110,14 @@ public class ProductPageSteps {
     public void userClicksGoBackButton() {
         productPage.goBackToResults();
     }
+
+    @When("user get the product pricing")
+    public void userGetTheProductPricing() {
+       productPage.getPricing();
+    }
+
+    @Then("verify the product pricing on product description page")
+    public void verifyTheProductPricingOnProductDescriptionPage() {
+       Assert.assertTrue(productPage.verifyPricing());
+    }
 }

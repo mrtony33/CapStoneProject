@@ -48,4 +48,14 @@ public class SortSteps {
         Collections.sort(checkSortedList);
         Assert.assertEquals(sortedPriceList,checkSortedList);
     }
+
+    @And("user sort the product based on customer rating")
+    public void userSortTheProductBasedOnCustomerRating() {
+        sortPage.sortBasedOnRating();
+    }
+
+    @Then("verify the product is sorted based on customer rating")
+    public void verifyTheProductIsSortedBasedOnCustomerRating() {
+        Assert.assertTrue(sortPage.verifyRatingSort());
+    }
 }

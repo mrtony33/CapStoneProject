@@ -10,4 +10,12 @@ public interface SortPage {
 
     }
      List<Integer> verifySort();
+
+    default void sortBasedOnRating(){
+
+    }
+
+   default boolean verifyRatingSort(){
+        return false;
+   }
 }

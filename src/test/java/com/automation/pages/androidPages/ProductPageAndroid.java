@@ -1,8 +1,6 @@
 package com.automation.pages.androidPages;
 
 import com.automation.pages.interfaces.ProductPage;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
@@ -16,6 +14,8 @@ public class ProductPageAndroid extends BasePageAndroid implements ProductPage {
     WebElement productPrice;
     @FindBy(xpath = "//android.view.ViewGroup[@content-desc='leftElement']")
     WebElement backIcon;
+    @FindBy(xpath = "(//android.widget.TextView[@content-desc=\"text_price\" ])[1]")
+    WebElement priceOfProduct;
 
 
     public boolean isPageDisplayed(){
@@ -40,6 +40,16 @@ public class ProductPageAndroid extends BasePageAndroid implements ProductPage {
     public void getRating(){
         rating1=rate1.getText();
         System.out.println(rating1);
+    }
+    String pricing1;
+    public void getPricing(){
+        pricing1=priceOfProduct.getText().replaceAll("\\D","").trim();
+        System.out.println(pricing1);
+    }
+    public   boolean verifyPricing(){
+        String pricing2=driver.findElement(By.xpath("//android.view.ViewGroup[@content-desc=\"priceinfo_container\"]/android.widget.TextView[4]")).getText();
+        System.out.println(pricing2);
+        return pricing1.equals(pricing2);
     }
     public void clickOnFirstProduct(){
         searchResults.get(0).click();

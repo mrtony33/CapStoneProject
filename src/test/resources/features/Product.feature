@@ -17,6 +17,14 @@ Feature: Product page features
     And get the average rating based on the user review
     Then verify the average product rating is displayed correctly
 
+  Scenario: Verify the product pricing
+    Given user opens website
+    Then verify home page is displayed
+    When user search for "shirt"
+    Then verify the searched product is displayed
+    When user get the product pricing
+    And user clicks on the first product
+    Then verify the product pricing on product description page
 
    Scenario Outline: Verify customer review filtering
      Given user opens website

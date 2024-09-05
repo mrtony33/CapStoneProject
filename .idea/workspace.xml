@@ -5,10 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d53cca9-deb9-4429-8c76-a7fcddae412a" name="Changes" comment="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/automation/pages/androidPages/SortPageAndroid.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/pages/androidPages/SearchResultsPageAndroid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/pages/androidPages/SearchResultsPageAndroid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/pages/androidPages/HomePageAndroid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/pages/androidPages/HomePageAndroid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/pages/androidPages/ProductPageAndroid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/pages/androidPages/ProductPageAndroid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/pages/androidPages/SortPageAndroid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/pages/androidPages/SortPageAndroid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/pages/interfaces/ProductPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/pages/interfaces/ProductPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/pages/interfaces/SortPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/pages/interfaces/SortPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/pages/webpages/ProductPageWeb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/pages/webpages/ProductPageWeb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/pages/webpages/SortPageWeb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/pages/webpages/SortPageWeb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/steps/ProductPageSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/steps/ProductPageSteps.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/steps/SortSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/steps/SortSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/Cart.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/Cart.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/Product.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/Product.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/Search.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/Search.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/Sort.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/Sort.feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,43 +53,44 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Cucumber Java.Feature: Cart.executor&quot;: &quot;Run&quot;,
-    &quot;Cucumber Java.Feature: Filter.executor&quot;: &quot;Run&quot;,
-    &quot;Cucumber Java.Feature: Product.executor&quot;: &quot;Run&quot;,
-    &quot;Cucumber Java.Feature: Search.executor&quot;: &quot;Run&quot;,
-    &quot;Cucumber Java.Feature: Sort.executor&quot;: &quot;Run&quot;,
-    &quot;Cucumber Java.Scenario: Verify cart price for multiple items.executor&quot;: &quot;Run&quot;,
-    &quot;Cucumber Java.Scenario: Verify cart price.executor&quot;: &quot;Run&quot;,
-    &quot;Cucumber Java.Scenario: Verify clickable.executor&quot;: &quot;Run&quot;,
-    &quot;Cucumber Java.Scenario: Verify customer review filtering.executor&quot;: &quot;Run&quot;,
-    &quot;Cucumber Java.Scenario: Verify next and previous button working.executor&quot;: &quot;Run&quot;,
-    &quot;Cucumber Java.Scenario: Verify size selector functionality.executor&quot;: &quot;Run&quot;,
-    &quot;Cucumber Java.Scenario: Verify the average product rating.executor&quot;: &quot;Run&quot;,
-    &quot;Cucumber Java.Scenario: Verify the product pricing.executor&quot;: &quot;Run&quot;,
-    &quot;Cucumber Java.Scenario: Verify the product rating.executor&quot;: &quot;Run&quot;,
-    &quot;Cucumber Java.Scenario: Verify user can filter by discount.executor&quot;: &quot;Run&quot;,
-    &quot;Cucumber Java.Scenario: Verify user can filter by gender.executor&quot;: &quot;Run&quot;,
-    &quot;Cucumber Java.Scenario: Verify user can move filters.executor&quot;: &quot;Run&quot;,
-    &quot;Cucumber Java.Scenario: Verify user can remove filters.executor&quot;: &quot;Run&quot;,
-    &quot;Cucumber Java.Scenario: Verify user can remove the product from the cart.executor&quot;: &quot;Run&quot;,
-    &quot;Cucumber Java.Scenario: Verify user can search a product.executor&quot;: &quot;Run&quot;,
-    &quot;Cucumber Java.Scenario: Verify user can sort the product price from high to low.executor&quot;: &quot;Run&quot;,
-    &quot;Cucumber Java.Scenario: Verify user can sort the product price from low to high.executor&quot;: &quot;Run&quot;,
-    &quot;Cucumber Java.Scenario: Verify user can use add to cart functionality.executor&quot;: &quot;Run&quot;,
-    &quot;Cucumber Java.Scenario: check if valid phone number otp send.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TestRunner.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.CapStoneProject [clean].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/280706/IdeaProjects/CapStoneProject/src/test/resources/application&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/UST_Java/CapStoneProject/src/main/java/org/example/Main.java&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.import&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Cucumber Java.Feature: Cart.executor": "Run",
+    "Cucumber Java.Feature: Filter.executor": "Run",
+    "Cucumber Java.Feature: Product.executor": "Run",
+    "Cucumber Java.Feature: Search.executor": "Run",
+    "Cucumber Java.Feature: Sort.executor": "Run",
+    "Cucumber Java.Scenario: Verify cart price for multiple items.executor": "Run",
+    "Cucumber Java.Scenario: Verify cart price.executor": "Run",
+    "Cucumber Java.Scenario: Verify clickable.executor": "Run",
+    "Cucumber Java.Scenario: Verify customer review filtering.executor": "Run",
+    "Cucumber Java.Scenario: Verify next and previous button working.executor": "Run",
+    "Cucumber Java.Scenario: Verify size selector functionality.executor": "Run",
+    "Cucumber Java.Scenario: Verify the average product rating.executor": "Run",
+    "Cucumber Java.Scenario: Verify the product pricing.executor": "Run",
+    "Cucumber Java.Scenario: Verify the product rating.executor": "Run",
+    "Cucumber Java.Scenario: Verify user can filter by discount.executor": "Run",
+    "Cucumber Java.Scenario: Verify user can filter by gender.executor": "Run",
+    "Cucumber Java.Scenario: Verify user can move filters.executor": "Run",
+    "Cucumber Java.Scenario: Verify user can remove filters.executor": "Run",
+    "Cucumber Java.Scenario: Verify user can remove the product from the cart.executor": "Run",
+    "Cucumber Java.Scenario: Verify user can search a product.executor": "Run",
+    "Cucumber Java.Scenario: Verify user can sort the product based on customer rating.executor": "Run",
+    "Cucumber Java.Scenario: Verify user can sort the product price from high to low.executor": "Run",
+    "Cucumber Java.Scenario: Verify user can sort the product price from low to high.executor": "Run",
+    "Cucumber Java.Scenario: Verify user can use add to cart functionality.executor": "Run",
+    "Cucumber Java.Scenario: check if valid phone number otp send.executor": "Run",
+    "JUnit.TestRunner.executor": "Run",
+    "Maven.CapStoneProject [clean].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/280706/IdeaProjects/CapStoneProject/src/test/resources/application",
+    "onboarding.tips.debug.path": "C:/UST_Java/CapStoneProject/src/main/java/org/example/Main.java",
+    "settings.editor.selected.configurable": "editor.preferences.import"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\280706\IdeaProjects\CapStoneProject\src\test\resources\application" />
@@ -88,16 +99,16 @@
       <recent name="com.automation.pages.webpages" />
     </key>
   </component>
-  <component name="RunManager" selected="Cucumber Java.Scenario: Verify user can sort the product price from low to high">
-    <configuration name="Scenario: Verify customer review filtering" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Cucumber Java.Scenario: Verify the product pricing">
+    <configuration name="Scenario: Verify the product pricing" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/Product.feature" />
       <option name="GLUE" value="com.automation.steps" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="CapStoneProject" />
-      <option name="NAME_FILTER" value="^Verify customer review filtering$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify customer review filtering$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: Verify customer review filtering" />
+      <option name="NAME_FILTER" value="^Verify the product pricing$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify the product pricing$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Verify the product pricing" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -129,15 +140,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Scenario: Verify user can search a product" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+    <configuration name="Scenario: Verify user can sort the product based on customer rating" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/Search.feature" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/Sort.feature" />
       <option name="GLUE" value="com.automation.steps" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="CapStoneProject" />
-      <option name="NAME_FILTER" value="^Verify user can search a product$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify user can search a product$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: Verify user can search a product" />
+      <option name="NAME_FILTER" value="^Verify user can sort the product based on customer rating$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify user can sort the product based on customer rating$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Verify user can sort the product based on customer rating" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -191,11 +202,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Cucumber Java.Scenario: Verify the product pricing" />
+        <item itemvalue="Cucumber Java.Scenario: Verify user can sort the product based on customer rating" />
         <item itemvalue="Cucumber Java.Scenario: Verify user can sort the product price from low to high" />
         <item itemvalue="Cucumber Java.Scenario: Verify user can sort the product price from high to low" />
         <item itemvalue="Cucumber Java.Scenario: Verify the product rating" />
-        <item itemvalue="Cucumber Java.Scenario: Verify user can search a product" />
-        <item itemvalue="Cucumber Java.Scenario: Verify customer review filtering" />
       </list>
     </recent_temporary>
   </component>
@@ -544,7 +555,23 @@
       <option name="project" value="LOCAL" />
       <updated>1725526159545</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
+      <option name="closed" value="true" />
+      <created>1725538022069</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1725538022069</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
+      <option name="closed" value="true" />
+      <created>1725538107910</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1725538107910</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
