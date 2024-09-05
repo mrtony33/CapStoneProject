@@ -28,9 +28,7 @@ public interface ProductPage {
     default void getRating(){
 
     }
-    default void clickOnFirstProduct(){
 
-    }
     default boolean verifyRating(){
         return false;
     }
@@ -50,4 +48,7 @@ public interface ProductPage {
         return false;
     }
 
+    default void goBackToResults(){
+
+    }
 }

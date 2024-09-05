@@ -70,7 +70,7 @@ public class ProductPageSteps {
 
     @When("user clicks on the first product")
     public void userClicksOnTheFirstProduct() {
-        productPage.clickOnFirstProduct();
+        searchResultPage.clickFirstResult();
     }
 
     @Then("verify the product rating on product description page")
@@ -109,4 +109,8 @@ public class ProductPageSteps {
         productPage.getRating();
     }
 
+    @When("user clicks go back button")
+    public void userClicksGoBackButton() {
+        productPage.goBackToResults();
+    }
 }

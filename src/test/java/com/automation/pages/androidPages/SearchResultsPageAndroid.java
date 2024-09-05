@@ -16,7 +16,7 @@ public class SearchResultsPageAndroid extends BasePageAndroid implements SearchR
     @FindBy(xpath = "//android.widget.ImageView[@content-desc='search']")
     WebElement searchIcon;
 
-    @FindBy(xpath = "//android.widget.TextView[contains(@text,'Items')]/preceding-sibling::android.widget.TextView[1]")
+    @FindBy(xpath = "//android.widget.TextView[contains(@text,' Items')]/preceding-sibling::android.widget.TextView[1]")
     WebElement resultsTitle;
 
     List<WebElement> searchResults;
@@ -26,7 +26,7 @@ public class SearchResultsPageAndroid extends BasePageAndroid implements SearchR
     public boolean checkResultsPresent() {
         int count=1;
         while (count<60){
-
+            System.out.println("inside while");
             WebElement item=driver.findElement(By.xpath(String.format("//android.view.ViewGroup[@content-desc='plp_product_%d']",count++)));
             if (isPresent(item)){
                 searchResults.add(item);
@@ -42,7 +42,16 @@ public class SearchResultsPageAndroid extends BasePageAndroid implements SearchR
         return !searchResults.isEmpty();
     }
 
+    public void clickFirstResult() {
+        searchResults.get(0).click();
+    }
+
     public boolean isProductDisplayed() {
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         return resultsTitle.getText().toLowerCase().contains(searchKey);
     }
 }
