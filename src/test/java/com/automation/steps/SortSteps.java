@@ -1,18 +1,27 @@
 package com.automation.steps;
 
+import com.automation.pages.androidPages.SortPageAndroid;
 import com.automation.pages.interfaces.SortPage;
 import com.automation.pages.webpages.SortPageWeb;
+import com.automation.utils.ConfigReader;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class SortSteps {
 
-    SortPage sortPage=new SortPageWeb();
-
+    SortPage sortPage;
+    public SortSteps() {
+        if (ConfigReader.getProperty("automation.type").equals("web")) {
+            sortPage = new SortPageWeb();
+        } else {
+            sortPage = new SortPageAndroid();
+        }
+    }
     @And("user sort the price from high to low")
     public void userSortThePriceFromHighToLow() {
         sortPage.sortThePriceHighToLow();

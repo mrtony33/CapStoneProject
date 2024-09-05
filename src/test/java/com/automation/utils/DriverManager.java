@@ -22,11 +22,11 @@ public class DriverManager {
             capabilities.setCapability("platformName", ConfigReader.getProperty("platform.name"));
             capabilities.setCapability("deviceName", ConfigReader.getProperty("device.name"));
             capabilities.setCapability("automationName", ConfigReader.getProperty("automation.name"));
-            capabilities.setCapability("app", ConfigReader.getProperty("app.path"));
+            capabilities.setCapability("app", System.getProperty("user.dir")+"/"+ConfigReader.getProperty("app.path"));
             capabilities.setCapability("appActivity", ConfigReader.getProperty("app.activity"));
             capabilities.setCapability("appPackage", ConfigReader.getProperty("app.package"));
             driver = new AndroidDriver(capabilities);
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
         }
 
     }

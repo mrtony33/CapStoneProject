@@ -25,7 +25,6 @@ public class HomePageAndroid extends BasePageAndroid implements HomePage {
     }
 
     public void searchForItem(String item) {
-
         try {
             searchButton.click();
             searchInput.sendKeys(item);
