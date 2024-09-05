@@ -16,18 +16,15 @@ import org.junit.Assert;
 public class ProductPageSteps {
     SearchResultPage searchResultPage;
     ProductPage productPage;
-    public ProductPageSteps(){
+   public ProductPageSteps(){
         if (ConfigReader.getProperty("automation.type").equals("web")){
             searchResultPage=new SearchResultsPageWeb();
             productPage=new ProductPageWeb();
         }else {
-            searchResultPage=new SearchResultsPageAndroid();
             productPage=new ProductPageAndroid();
+            searchResultPage=new SearchResultsPageAndroid();
         }
     }
-
-
-
     @Then("verify product page is displayed")
     public void verify_product_page_is_displayed() {
         Assert.assertTrue(productPage.isPageDisplayed());
