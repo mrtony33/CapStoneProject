@@ -65,4 +65,33 @@ public class ProductPageAndroid extends BasePageAndroid implements ProductPage {
         System.out.println(averageRating);
         return averageRating==averageRatingCalculated;
     }
+    public void clickOnAllReviews(){
+        Dimension dimension = driver.manage().window().getSize();
+        int width = dimension.getWidth();
+        int height = dimension.getHeight();
+
+        while (!isPresent(reviewsButton)) {
+            scrollOrSwipe(width / 2, height / 2, width / 2, 0);
+        }
+        reviewsButton.click();
+    }
+    WebElement ratingOption;
+    String rating;
+    public void reviewBasedOnRating(String rate){
+        int r=5-Integer.parseInt(rate);
+        ratingOption= driver.findElement(By.xpath(String.format("//android.view.ViewGroup[@content-desc='cross_sell_pill%d']",r)));
+        ratingOption.click();
+        rating=ratingOption.getText();
+        System.out.println(rating);
+    }
+    public boolean isRatingFilterApplied(){
+        WebElement filteredRating=driver.findElement(By.xpath("//android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/android.widget.TextView"));
+            if (!filteredRating.getText().equals(rating)) {
+                return true;
+            }
+            System.out.println(filteredRating.getText());
+
+        return false;
+    }
 }
+
