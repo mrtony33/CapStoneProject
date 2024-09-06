@@ -25,19 +25,11 @@ public class HomePageAndroid extends BasePageAndroid implements HomePage {
     }
 
     public void searchForItem(String item) {
-        try {
-            searchButton.click();
-            searchInput.sendKeys(item);
-            searchInput.click();
-            driver.executeScript("mobile:performEditorAction", ImmutableMap.of("action", "search"));
-        } catch (Exception e) {
             popup.click();
             searchButton.click();
             searchInput.sendKeys(item);
             driver.executeScript("mobile:performEditorAction", ImmutableMap.of("action", "search"));
-        }
     }
-
 
     public boolean isHomePageDisplayed() {
         return  popup.isDisplayed();

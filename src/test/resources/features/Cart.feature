@@ -30,7 +30,6 @@ Feature: Cart Features
     Then verify the price in the cart page
 
 
-
   Scenario: Verify size selector functionality
     Given user opens website
     When user search for "shirt"

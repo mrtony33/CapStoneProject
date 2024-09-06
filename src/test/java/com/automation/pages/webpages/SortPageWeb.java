@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class SortPageWeb extends BasePageWeb implements SortPage {
@@ -18,6 +19,9 @@ public class SortPageWeb extends BasePageWeb implements SortPage {
 
     @FindBy(xpath = "//ul[@class='sort-list']/li[6]")
     WebElement option2;
+
+    @FindBy(xpath = "//ul[@class='sort-list']/li[7]")
+    WebElement option3;
 
     public void sortThePriceHighToLow() {
         dropdown.click();
@@ -54,5 +58,24 @@ public class SortPageWeb extends BasePageWeb implements SortPage {
             }
         }
         return sortedPriceList;
+    }
+    public void sortBasedOnRating(){
+        dropdown.click();
+        option3.click();
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public boolean verifyRatingSort(){
+        List<WebElement> ratings=driver.findElements(By.xpath("//div[@class='product-ratingsContainer']/span[1]"));
+        List<Float> ratingList1=new ArrayList<>();
+        for (WebElement w:ratings){
+            ratingList1.add(Float.parseFloat(w.getText()));
+        }
+        List<Float> ratingList2=new ArrayList<>(ratingList1);
+        Collections.sort(ratingList2);
+        return ratingList1.equals(ratingList2);
     }
 }

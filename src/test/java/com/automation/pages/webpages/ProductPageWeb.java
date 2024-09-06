@@ -37,10 +37,10 @@ public class ProductPageWeb extends BasePageWeb implements ProductPage {
     WebElement viewAllReviews;
     @FindBy(xpath = "//div[@class='dropdown-filter-active']")
     WebElement ratingDropdown;
-    @FindBy(xpath = "//div[@class='product-price']")
-    WebElement productPrice;
     @FindBy(xpath = "//span[@class='pdp-price']")
     WebElement pdpPrice;
+    @FindBy(xpath = "(//span[@class='product-discountedPrice'])[1]")
+    WebElement productPrice;
 
 
     public boolean isPageDisplayed() {
@@ -175,4 +175,15 @@ public class ProductPageWeb extends BasePageWeb implements ProductPage {
             }
             return true;
         }
+    String price;
+    public void getPricing(){
+        price=productPrice.getText().replaceAll("\\D","").trim();
+        System.out.println(price);
+    }
+    public   boolean verifyPricing(){
+        switchHandles();
+        String price2= pdpPrice.getText().replaceAll("\\D","").trim();
+        System.out.println(price2);
+        return price.equals(price2);
+    }
 }

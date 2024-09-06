@@ -4,7 +4,7 @@ Feature: Product page features
     Given user opens website
     Then verify home page is displayed
     When user search for "shirt"
-    #Then verify the searched product is displayed
+    Then verify the searched product is displayed
     When user get the product rating
     And user clicks on the first product
     Then verify the product rating on product description page
@@ -12,11 +12,19 @@ Feature: Product page features
   Scenario: Verify the average product rating
     Given user opens website
     When user search for "shirt"
-    #Then verify the searched product is displayed
+    Then verify the searched product is displayed
     When user clicks on the first product
     And get the average rating based on the user review
     Then verify the average product rating is displayed correctly
 
+  Scenario: Verify the product pricing
+    Given user opens website
+    Then verify home page is displayed
+    When user search for "shirt"
+    Then verify the searched product is displayed
+    When user get the product pricing
+    And user clicks on the first product
+    Then verify the product pricing on product description page
 
    Scenario Outline: Verify customer review filtering
      Given user opens website
@@ -29,4 +37,4 @@ Feature: Product page features
      Then verify that rating review is applied
      Examples:
         |star|
-        |3   |
+        |5   |

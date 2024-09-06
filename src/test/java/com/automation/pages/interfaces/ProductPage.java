@@ -52,4 +52,12 @@ public interface ProductPage {
     default void goBackToResults(){
 
     }
+
+   default void getPricing(){
+
+   }
+
+    default  boolean verifyPricing(){
+        return  false;
+    }
 }
