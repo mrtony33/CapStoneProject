@@ -10,6 +10,7 @@ public class ProductPageWeb extends BasePageWeb implements ProductPage {
     @FindBy(xpath = "(//button[contains(@class,'size-buttons-size-button ')])[1]")
     WebElement selectSize;
 
+
     @FindBy(xpath = "//button[contains(@class,'size-buttons-size-button ')]")
     List<WebElement> sizes;
     @FindBy(xpath = "//div[text()='ADD TO BAG']")
