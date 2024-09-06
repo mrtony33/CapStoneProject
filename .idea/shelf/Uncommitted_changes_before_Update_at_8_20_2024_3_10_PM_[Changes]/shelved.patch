@@ -1,0 +1,332 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"5d53cca9-deb9-4429-8c76-a7fcddae412a\" name=\"Changes\" comment=\"Merge remote-tracking branch 'origin/main'\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_17_2024_11_44_AM__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_17_2024_11_44_AM__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/com/automation/pages/BasePage.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/com/automation/pages/BasePage.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/com/automation/pages/CartPage.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/com/automation/pages/CartPage.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/com/automation/pages/ProductPage.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/com/automation/pages/ProductPage.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/com/automation/steps/CartSteps.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/com/automation/steps/CartSteps.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/com/automation/steps/ProductPageSteps.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/com/automation/steps/ProductPageSteps.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/test/resources/features/Cart.feature\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/resources/features/Cart.feature\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/test/resources/features/Search.feature\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/resources/features/Search.feature\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/com/automation/steps/ProductPageSteps.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/com/automation/steps/ProductPageSteps.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/test/resources/features/Search.feature\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/resources/features/Search.feature\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"PUSH_AUTO_UPDATE\" value=\"true\" />\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 4\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2klndCMGWMIt1mdn1gurYJEaUNB\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;Cucumber Java.Scenario: Verify cart price.executor&quot;: &quot;Run&quot;,\r\n    &quot;Cucumber Java.Scenario: Verify user can remove the product from the cart.executor&quot;: &quot;Run&quot;,\r\n    &quot;Cucumber Java.Scenario: Verify user can search a product.executor&quot;: &quot;Run&quot;,\r\n    &quot;Cucumber Java.Scenario: Verify user can sort the product price from high to low.executor&quot;: &quot;Run&quot;,\r\n    &quot;Cucumber Java.Scenario: Verify user can sort the product price from low to high.executor&quot;: &quot;Run&quot;,\r\n    &quot;Cucumber Java.Scenario: Verify user can use add to cart functionality.executor&quot;: &quot;Run&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;main&quot;,\r\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/UST_Java/CapStoneProject/src/test/java/com/automation/steps&quot;,\r\n    &quot;onboarding.tips.debug.path&quot;: &quot;C:/UST_Java/CapStoneProject/src/main/java/org/example/Main.java&quot;\r\n  }\r\n}]]></component>\r\n  <component name=\"RunManager\" selected=\"Cucumber Java.Scenario: Verify next and previous button working\">\r\n    <configuration name=\"Scenario: Verify cart price\" type=\"CucumberJavaRunConfigurationType\" factoryName=\"Cucumber java\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"CUCUMBER_CORE_VERSION\" value=\"5\" />\r\n      <option name=\"FILE_PATH\" value=\"$PROJECT_DIR$/src/test/resources/features/Cart.feature\" />\r\n      <option name=\"GLUE\" value=\"com.automation.steps\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"io.cucumber.core.cli.Main\" />\r\n      <module name=\"CapStoneProject\" />\r\n      <option name=\"NAME_FILTER\" value=\"^Verify cart price$\" />\r\n      <option name=\"PROGRAM_PARAMETERS\" value=\" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify cart price$&quot;\" />\r\n      <option name=\"SUGGESTED_NAME\" value=\"Scenario: Verify cart price\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$MODULE_WORKING_DIR$\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"io.cucumber.core.cli.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Scenario: Verify next and previous button working\" type=\"CucumberJavaRunConfigurationType\" factoryName=\"Cucumber java\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"CUCUMBER_CORE_VERSION\" value=\"5\" />\r\n      <option name=\"FILE_PATH\" value=\"$PROJECT_DIR$/src/test/resources/features/Search.feature\" />\r\n      <option name=\"GLUE\" value=\"com.automation.steps\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"io.cucumber.core.cli.Main\" />\r\n      <module name=\"CapStoneProject\" />\r\n      <option name=\"NAME_FILTER\" value=\"^Verify next and previous button working$\" />\r\n      <option name=\"PROGRAM_PARAMETERS\" value=\" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify next and previous button working$&quot;\" />\r\n      <option name=\"SUGGESTED_NAME\" value=\"Scenario: Verify next and previous button working\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$MODULE_WORKING_DIR$\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"io.cucumber.core.cli.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Scenario: Verify user can remove the product from the cart\" type=\"CucumberJavaRunConfigurationType\" factoryName=\"Cucumber java\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"CUCUMBER_CORE_VERSION\" value=\"5\" />\r\n      <option name=\"FILE_PATH\" value=\"$PROJECT_DIR$/src/test/resources/features/Cart.feature\" />\r\n      <option name=\"GLUE\" value=\"com.automation.steps\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"io.cucumber.core.cli.Main\" />\r\n      <module name=\"CapStoneProject\" />\r\n      <option name=\"NAME_FILTER\" value=\"^Verify user can remove the product from the cart$\" />\r\n      <option name=\"PROGRAM_PARAMETERS\" value=\" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify user can remove the product from the cart$&quot;\" />\r\n      <option name=\"SUGGESTED_NAME\" value=\"Scenario: Verify user can remove the product from the cart\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$MODULE_WORKING_DIR$\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"io.cucumber.core.cli.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Scenario: Verify user can search a product\" type=\"CucumberJavaRunConfigurationType\" factoryName=\"Cucumber java\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"CUCUMBER_CORE_VERSION\" value=\"5\" />\r\n      <option name=\"FILE_PATH\" value=\"$PROJECT_DIR$/src/test/resources/features/Search.feature\" />\r\n      <option name=\"GLUE\" value=\"com.automation.steps\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"io.cucumber.core.cli.Main\" />\r\n      <module name=\"CapStoneProject\" />\r\n      <option name=\"NAME_FILTER\" value=\"^Verify user can search a product$\" />\r\n      <option name=\"PROGRAM_PARAMETERS\" value=\" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify user can search a product$&quot;\" />\r\n      <option name=\"SUGGESTED_NAME\" value=\"Scenario: Verify user can search a product\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$MODULE_WORKING_DIR$\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"io.cucumber.core.cli.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Scenario: Verify user can sort the product price from high to low\" type=\"CucumberJavaRunConfigurationType\" factoryName=\"Cucumber java\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"CUCUMBER_CORE_VERSION\" value=\"5\" />\r\n      <option name=\"FILE_PATH\" value=\"$PROJECT_DIR$/src/test/resources/features/Sort.feature\" />\r\n      <option name=\"GLUE\" value=\"com.automation.steps\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"io.cucumber.core.cli.Main\" />\r\n      <module name=\"CapStoneProject\" />\r\n      <option name=\"NAME_FILTER\" value=\"^Verify user can sort the product price from high to low$\" />\r\n      <option name=\"PROGRAM_PARAMETERS\" value=\" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify user can sort the product price from high to low$&quot;\" />\r\n      <option name=\"SUGGESTED_NAME\" value=\"Scenario: Verify user can sort the product price from high to low\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$MODULE_WORKING_DIR$\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"io.cucumber.core.cli.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Scenario: Verify user can use add to cart functionality\" type=\"CucumberJavaRunConfigurationType\" factoryName=\"Cucumber java\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"CUCUMBER_CORE_VERSION\" value=\"5\" />\r\n      <option name=\"FILE_PATH\" value=\"$PROJECT_DIR$/src/test/resources/features/Cart.feature\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"io.cucumber.core.cli.Main\" />\r\n      <module name=\"CapStoneProject\" />\r\n      <option name=\"NAME_FILTER\" value=\"^Verify user can use add to cart functionality$\" />\r\n      <option name=\"PROGRAM_PARAMETERS\" value=\" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify user can use add to cart functionality$&quot;\" />\r\n      <option name=\"SUGGESTED_NAME\" value=\"Scenario: Verify user can use add to cart functionality\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$MODULE_WORKING_DIR$\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"io.cucumber.core.cli.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Cucumber Java.Scenario: Verify cart price\" />\r\n        <item itemvalue=\"Cucumber Java.Scenario: Verify user can sort the product price from high to low\" />\r\n        <item itemvalue=\"Cucumber Java.Scenario: Verify user can search a product\" />\r\n        <item itemvalue=\"Cucumber Java.Scenario: Verify user can remove the product from the cart\" />\r\n        <item itemvalue=\"Cucumber Java.Scenario: Verify user can use add to cart functionality\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"5d53cca9-deb9-4429-8c76-a7fcddae412a\" name=\"Changes\" comment=\"\" />\r\n      <created>1723867116126</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1723867116126</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Implemented search method\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1723875214489</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1723875214489</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/test/java/com/automation/pages/BasePage.java&#10;#&#9;src/test/java/com/automation/steps/HomeStep.java\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1723892043338</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1723892043338</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Merge remote-tracking branch 'origin/main'\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1723892097721</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1723892097721</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Merge remote-tracking branch 'origin/main'\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1723893130315</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1723893130315</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"Merge remote-tracking branch 'origin/main'\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1723893363018</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1723893363019</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"Merge remote-tracking branch 'origin/main'\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1723893938854</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1723893938854</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"Merge remote-tracking branch 'origin/main'\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1724041515599</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1724041515599</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"Merge remote-tracking branch 'origin/main'\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1724060942629</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1724060942629</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"Merge remote-tracking branch 'origin/main'\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1724061028247</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1724061028247</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"10\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Implemented search method\" />\r\n    <MESSAGE value=\"Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/test/java/com/automation/pages/BasePage.java&#10;#&#9;src/test/java/com/automation/steps/HomeStep.java\" />\r\n    <MESSAGE value=\"Merge remote-tracking branch 'origin/main'\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Merge remote-tracking branch 'origin/main'\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>\r\n          <line>13</line>\r\n          <option name=\"timeStamp\" value=\"1\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/src/test/java/com/automation/pages/CartPage.java</url>\r\n          <line>43</line>\r\n          <option name=\"timeStamp\" value=\"2\" />\r\n        </line-breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -4,171 +4,34 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="5d53cca9-deb9-4429-8c76-a7fcddae412a" name="Changes" comment="Merge remote-tracking branch 'origin/main'">
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_17_2024_11_44_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_17_2024_11_44_AM__Changes_.xml" afterDir="false" />
++    <list default="true" id="49952109-634c-4930-91bf-a313081ce1fe" name="Changes" comment="scenario size added">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/pages/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/pages/BasePage.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/pages/CartPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/pages/CartPage.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/pages/ProductPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/pages/ProductPage.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/steps/CartSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/steps/CartSteps.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/steps/ProductPageSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/steps/ProductPageSteps.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/Cart.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/Cart.feature" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/Search.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/Search.feature" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/steps/ProductPageSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/steps/ProductPageSteps.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/Search.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/Search.feature" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/resources/features/Sort.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/Sort.feature" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+     <option name="LAST_RESOLUTION" value="IGNORE" />
+   </component>
+-  <component name="FileTemplateManagerImpl">
+-    <option name="RECENT_TEMPLATES">
+-      <list>
+-        <option value="Class" />
+-      </list>
+-    </option>
+-  </component>
+-  <component name="Git.Settings">
+-    <option name="PUSH_AUTO_UPDATE" value="true" />
+-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+-  </component>
+-  <component name="ProjectColorInfo">{
+-  &quot;associatedIndex&quot;: 4
+-}</component>
+-  <component name="ProjectId" id="2klndCMGWMIt1mdn1gurYJEaUNB" />
+   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+     <ConfirmationsSetting value="2" id="Add" />
+   </component>
+-  <component name="ProjectViewState">
+-    <option name="hideEmptyMiddlePackages" value="true" />
+-    <option name="showLibraryContents" value="true" />
+-  </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;Cucumber Java.Scenario: Verify cart price.executor&quot;: &quot;Run&quot;,
+-    &quot;Cucumber Java.Scenario: Verify user can remove the product from the cart.executor&quot;: &quot;Run&quot;,
+-    &quot;Cucumber Java.Scenario: Verify user can search a product.executor&quot;: &quot;Run&quot;,
+-    &quot;Cucumber Java.Scenario: Verify user can sort the product price from high to low.executor&quot;: &quot;Run&quot;,
+-    &quot;Cucumber Java.Scenario: Verify user can sort the product price from low to high.executor&quot;: &quot;Run&quot;,
+-    &quot;Cucumber Java.Scenario: Verify user can use add to cart functionality.executor&quot;: &quot;Run&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;C:/UST_Java/CapStoneProject/src/test/java/com/automation/steps&quot;,
+-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/UST_Java/CapStoneProject/src/main/java/org/example/Main.java&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "Cucumber Java.Scenario: Verify size selector functionality.executor": "Run",
++    "git-widget-placeholder": "main"
+   }
+ }]]></component>
+-  <component name="RunManager" selected="Cucumber Java.Scenario: Verify next and previous button working">
+-    <configuration name="Scenario: Verify cart price" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+-      <option name="CUCUMBER_CORE_VERSION" value="5" />
+-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/Cart.feature" />
+-      <option name="GLUE" value="com.automation.steps" />
+-      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+-      <module name="CapStoneProject" />
+-      <option name="NAME_FILTER" value="^Verify cart price$" />
+-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify cart price$&quot;" />
+-      <option name="SUGGESTED_NAME" value="Scenario: Verify cart price" />
+-      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+-      <extension name="coverage">
+-        <pattern>
+-          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+-          <option name="ENABLED" value="true" />
+-        </pattern>
+-      </extension>
+-      <method v="2">
+-        <option name="Make" enabled="true" />
+-      </method>
+-    </configuration>
+-    <configuration name="Scenario: Verify next and previous button working" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+-      <option name="CUCUMBER_CORE_VERSION" value="5" />
+-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/Search.feature" />
+-      <option name="GLUE" value="com.automation.steps" />
+-      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+-      <module name="CapStoneProject" />
+-      <option name="NAME_FILTER" value="^Verify next and previous button working$" />
+-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify next and previous button working$&quot;" />
+-      <option name="SUGGESTED_NAME" value="Scenario: Verify next and previous button working" />
+-      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+-      <extension name="coverage">
+-        <pattern>
+-          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+-          <option name="ENABLED" value="true" />
+-        </pattern>
+-      </extension>
+-      <method v="2">
+-        <option name="Make" enabled="true" />
+-      </method>
+-    </configuration>
+-    <configuration name="Scenario: Verify user can remove the product from the cart" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
++  <component name="RunManager">
++    <configuration name="Scenario: Verify size selector functionality" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+       <option name="CUCUMBER_CORE_VERSION" value="5" />
+       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/Cart.feature" />
+       <option name="GLUE" value="com.automation.steps" />
+       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+       <module name="CapStoneProject" />
+-      <option name="NAME_FILTER" value="^Verify user can remove the product from the cart$" />
+-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify user can remove the product from the cart$&quot;" />
+-      <option name="SUGGESTED_NAME" value="Scenario: Verify user can remove the product from the cart" />
+-      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+-      <extension name="coverage">
+-        <pattern>
+-          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+-          <option name="ENABLED" value="true" />
+-        </pattern>
+-      </extension>
+-      <method v="2">
+-        <option name="Make" enabled="true" />
+-      </method>
+-    </configuration>
+-    <configuration name="Scenario: Verify user can search a product" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+-      <option name="CUCUMBER_CORE_VERSION" value="5" />
+-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/Search.feature" />
+-      <option name="GLUE" value="com.automation.steps" />
+-      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+-      <module name="CapStoneProject" />
+-      <option name="NAME_FILTER" value="^Verify user can search a product$" />
+-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify user can search a product$&quot;" />
+-      <option name="SUGGESTED_NAME" value="Scenario: Verify user can search a product" />
+-      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+-      <extension name="coverage">
+-        <pattern>
+-          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+-          <option name="ENABLED" value="true" />
+-        </pattern>
+-      </extension>
+-      <method v="2">
+-        <option name="Make" enabled="true" />
+-      </method>
+-    </configuration>
+-    <configuration name="Scenario: Verify user can sort the product price from high to low" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+-      <option name="CUCUMBER_CORE_VERSION" value="5" />
+-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/Sort.feature" />
+-      <option name="GLUE" value="com.automation.steps" />
+-      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+-      <module name="CapStoneProject" />
+-      <option name="NAME_FILTER" value="^Verify user can sort the product price from high to low$" />
+-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify user can sort the product price from high to low$&quot;" />
+-      <option name="SUGGESTED_NAME" value="Scenario: Verify user can sort the product price from high to low" />
+-      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+-      <extension name="coverage">
+-        <pattern>
+-          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+-          <option name="ENABLED" value="true" />
+-        </pattern>
+-      </extension>
+-      <method v="2">
+-        <option name="Make" enabled="true" />
+-      </method>
+-    </configuration>
+-    <configuration name="Scenario: Verify user can use add to cart functionality" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+-      <option name="CUCUMBER_CORE_VERSION" value="5" />
+-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/Cart.feature" />
+-      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+-      <module name="CapStoneProject" />
+-      <option name="NAME_FILTER" value="^Verify user can use add to cart functionality$" />
+-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify user can use add to cart functionality$&quot;" />
+-      <option name="SUGGESTED_NAME" value="Scenario: Verify user can use add to cart functionality" />
++      <option name="NAME_FILTER" value="^Verify size selector functionality$" />
++      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify size selector functionality$&quot;" />
++      <option name="SUGGESTED_NAME" value="Scenario: Verify size selector functionality" />
+       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+       <extension name="coverage">
+         <pattern>
+@@ -182,129 +45,25 @@
+     </configuration>
+     <recent_temporary>
+       <list>
+-        <item itemvalue="Cucumber Java.Scenario: Verify cart price" />
+-        <item itemvalue="Cucumber Java.Scenario: Verify user can sort the product price from high to low" />
+-        <item itemvalue="Cucumber Java.Scenario: Verify user can search a product" />
+-        <item itemvalue="Cucumber Java.Scenario: Verify user can remove the product from the cart" />
+-        <item itemvalue="Cucumber Java.Scenario: Verify user can use add to cart functionality" />
++        <item itemvalue="Cucumber Java.Scenario: Verify size selector functionality" />
+       </list>
+     </recent_temporary>
+   </component>
+-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+-    <task active="true" id="Default" summary="Default task">
+-      <changelist id="5d53cca9-deb9-4429-8c76-a7fcddae412a" name="Changes" comment="" />
+-      <created>1723867116126</created>
+-      <option name="number" value="Default" />
+-      <option name="presentableId" value="Default" />
+-      <updated>1723867116126</updated>
+-    </task>
+-    <task id="LOCAL-00001" summary="Implemented search method">
++    <task id="LOCAL-00001" summary="scenario size added">
+       <option name="closed" value="true" />
+-      <created>1723875214489</created>
++      <created>1724145693556</created>
+       <option name="number" value="00001" />
+       <option name="presentableId" value="LOCAL-00001" />
+       <option name="project" value="LOCAL" />
+-      <updated>1723875214489</updated>
+-    </task>
+-    <task id="LOCAL-00002" summary="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/test/java/com/automation/pages/BasePage.java&#10;#&#9;src/test/java/com/automation/steps/HomeStep.java">
+-      <option name="closed" value="true" />
+-      <created>1723892043338</created>
+-      <option name="number" value="00002" />
+-      <option name="presentableId" value="LOCAL-00002" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1723892043338</updated>
+-    </task>
+-    <task id="LOCAL-00003" summary="Merge remote-tracking branch 'origin/main'">
+-      <option name="closed" value="true" />
+-      <created>1723892097721</created>
+-      <option name="number" value="00003" />
+-      <option name="presentableId" value="LOCAL-00003" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1723892097721</updated>
+-    </task>
+-    <task id="LOCAL-00004" summary="Merge remote-tracking branch 'origin/main'">
+-      <option name="closed" value="true" />
+-      <created>1723893130315</created>
+-      <option name="number" value="00004" />
+-      <option name="presentableId" value="LOCAL-00004" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1723893130315</updated>
++      <updated>1724145693556</updated>
+     </task>
+-    <task id="LOCAL-00005" summary="Merge remote-tracking branch 'origin/main'">
+-      <option name="closed" value="true" />
+-      <created>1723893363018</created>
+-      <option name="number" value="00005" />
+-      <option name="presentableId" value="LOCAL-00005" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1723893363019</updated>
+-    </task>
+-    <task id="LOCAL-00006" summary="Merge remote-tracking branch 'origin/main'">
+-      <option name="closed" value="true" />
+-      <created>1723893938854</created>
+-      <option name="number" value="00006" />
+-      <option name="presentableId" value="LOCAL-00006" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1723893938854</updated>
+-    </task>
+-    <task id="LOCAL-00007" summary="Merge remote-tracking branch 'origin/main'">
+-      <option name="closed" value="true" />
+-      <created>1724041515599</created>
+-      <option name="number" value="00007" />
+-      <option name="presentableId" value="LOCAL-00007" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1724041515599</updated>
+-    </task>
+-    <task id="LOCAL-00008" summary="Merge remote-tracking branch 'origin/main'">
+-      <option name="closed" value="true" />
+-      <created>1724060942629</created>
+-      <option name="number" value="00008" />
+-      <option name="presentableId" value="LOCAL-00008" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1724060942629</updated>
+-    </task>
+-    <task id="LOCAL-00009" summary="Merge remote-tracking branch 'origin/main'">
+-      <option name="closed" value="true" />
+-      <created>1724061028247</created>
+-      <option name="number" value="00009" />
+-      <option name="presentableId" value="LOCAL-00009" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1724061028247</updated>
+-    </task>
+-    <option name="localTasksCounter" value="10" />
++    <option name="localTasksCounter" value="2" />
+     <servers />
+   </component>
+-  <component name="Vcs.Log.Tabs.Properties">
+-    <option name="TAB_STATES">
+-      <map>
+-        <entry key="MAIN">
+-          <value>
+-            <State />
+-          </value>
+-        </entry>
+-      </map>
+-    </option>
+-  </component>
+   <component name="VcsManagerConfiguration">
+-    <MESSAGE value="Implemented search method" />
+-    <MESSAGE value="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/test/java/com/automation/pages/BasePage.java&#10;#&#9;src/test/java/com/automation/steps/HomeStep.java" />
+-    <MESSAGE value="Merge remote-tracking branch 'origin/main'" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/main'" />
+-  </component>
+-  <component name="XDebuggerManager">
+-    <breakpoint-manager>
+-      <breakpoints>
+-        <line-breakpoint enabled="true" type="java-line">
+-          <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
+-          <line>13</line>
+-          <option name="timeStamp" value="1" />
+-        </line-breakpoint>
+-        <line-breakpoint enabled="true" type="java-line">
+-          <url>file://$PROJECT_DIR$/src/test/java/com/automation/pages/CartPage.java</url>
+-          <line>43</line>
+-          <option name="timeStamp" value="2" />
+-        </line-breakpoint>
+-      </breakpoints>
+-    </breakpoint-manager>
++    <MESSAGE value="scenario size" />
++    <MESSAGE value="scenario size added" />
++    <option name="LAST_COMMIT_MESSAGE" value="scenario size added" />
+   </component>
+ </project>
+\ No newline at end of file
