@@ -5,20 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d53cca9-deb9-4429-8c76-a7fcddae412a" name="Changes" comment="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/automation/pages/interfaces/NavigationPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/automation/pages/webpages/NavigationPageWeb.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/automation/steps/NavigationSteps.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/features/Navigation.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/pages/androidPages/HomePageAndroid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/pages/androidPages/HomePageAndroid.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/pages/androidPages/ProductPageAndroid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/pages/androidPages/ProductPageAndroid.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/pages/androidPages/SortPageAndroid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/pages/androidPages/SortPageAndroid.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/pages/interfaces/ProductPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/pages/interfaces/ProductPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/pages/interfaces/SortPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/pages/interfaces/SortPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/pages/webpages/ProductPageWeb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/pages/webpages/ProductPageWeb.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/pages/webpages/SortPageWeb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/pages/webpages/SortPageWeb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/steps/Hooks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/steps/Hooks.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/steps/ProductPageSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/steps/ProductPageSteps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/steps/SortSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/steps/SortSteps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/Cart.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/Cart.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/Product.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/Product.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/Search.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/Search.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/Sort.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/Sort.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/config/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/config/config.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,6 +63,7 @@
     "Cucumber Java.Scenario: Verify the average product rating.executor": "Run",
     "Cucumber Java.Scenario: Verify the product pricing.executor": "Run",
     "Cucumber Java.Scenario: Verify the product rating.executor": "Run",
+    "Cucumber Java.Scenario: Verify the working of navigation bar.executor": "Run",
     "Cucumber Java.Scenario: Verify user can filter by discount.executor": "Run",
     "Cucumber Java.Scenario: Verify user can filter by gender.executor": "Run",
     "Cucumber Java.Scenario: Verify user can move filters.executor": "Run",
@@ -99,7 +94,7 @@
       <recent name="com.automation.pages.webpages" />
     </key>
   </component>
-  <component name="RunManager" selected="Cucumber Java.Scenario: Verify the product pricing">
+  <component name="RunManager" selected="Cucumber Java.Scenario: Verify the working of navigation bar">
     <configuration name="Scenario: Verify the product pricing" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/Product.feature" />
@@ -120,15 +115,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Scenario: Verify the product rating" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+    <configuration name="Scenario: Verify the working of navigation bar" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/Product.feature" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/Navigation.feature" />
       <option name="GLUE" value="com.automation.steps" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="CapStoneProject" />
-      <option name="NAME_FILTER" value="^Verify the product rating$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify the product rating$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: Verify the product rating" />
+      <option name="NAME_FILTER" value="^Verify the working of navigation bar$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify the working of navigation bar$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Verify the working of navigation bar" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -202,11 +197,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Cucumber Java.Scenario: Verify the working of navigation bar" />
         <item itemvalue="Cucumber Java.Scenario: Verify the product pricing" />
         <item itemvalue="Cucumber Java.Scenario: Verify user can sort the product based on customer rating" />
         <item itemvalue="Cucumber Java.Scenario: Verify user can sort the product price from low to high" />
         <item itemvalue="Cucumber Java.Scenario: Verify user can sort the product price from high to low" />
-        <item itemvalue="Cucumber Java.Scenario: Verify the product rating" />
       </list>
     </recent_temporary>
   </component>
@@ -571,7 +566,23 @@
       <option name="project" value="LOCAL" />
       <updated>1725538107910</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
+      <option name="closed" value="true" />
+      <created>1725613449429</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1725613449429</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
+      <option name="closed" value="true" />
+      <created>1725613531450</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1725613531450</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
