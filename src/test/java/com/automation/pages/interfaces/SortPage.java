@@ -18,4 +18,6 @@ public interface SortPage {
    default boolean verifyRatingSort(){
         return false;
    }
+
+    void sortByDiscount();
 }
