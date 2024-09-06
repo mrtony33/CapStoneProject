@@ -120,4 +120,5 @@ public class ProductPageSteps {
     public void verifyTheProductPricingOnProductDescriptionPage() {
        Assert.assertTrue(productPage.verifyPricing());
     }
+
 }
