@@ -1,5 +1,6 @@
  package com.automation.steps;
 
+ import com.automation.pages.androidPages.CartPageAndroid;
  import com.automation.pages.interfaces.CartPage;
  import com.automation.pages.webpages.CartPageWeb;
  import com.automation.utils.ConfigReader;
@@ -14,6 +15,8 @@ public class CartSteps {
     public CartSteps() {
         if (ConfigReader.getProperty("automation.type").equals("web")){
             cartPage=new CartPageWeb();
+        }else {
+            cartPage=new CartPageAndroid();
         }
     }
 

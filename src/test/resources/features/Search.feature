@@ -27,5 +27,3 @@ Feature: Search a product
     Then verify product page is displayed
     When user clicks go back button
     Then verify search results is not empty
-
-

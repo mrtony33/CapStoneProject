@@ -1,6 +1,7 @@
 package com.automation.pages.interfaces;
 
 public interface ProductPage {
+
     default boolean isPageDisplayed(){
         return false;
     }

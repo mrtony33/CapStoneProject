@@ -12,11 +12,64 @@ public class ProductPageAndroid extends BasePageAndroid implements ProductPage {
 
     @FindBy(xpath = "//android.view.ViewGroup[@content-desc='priceinfo_container']/android.widget.TextView[4]")
     WebElement productPrice;
+
     @FindBy(xpath = "//android.view.ViewGroup[@content-desc='leftElement']")
     WebElement backIcon;
     @FindBy(xpath = "(//android.widget.TextView[@content-desc=\"text_price\" ])[1]")
     WebElement priceOfProduct;
 
+    @FindBy(xpath = "//android.view.ViewGroup[@content-desc='cart_back_button']")
+    WebElement cartBackIcon;
+    @FindBy(xpath = "//android.widget.TextView[@text='Add to Bag']")
+    WebElement addToCart;
+    @FindBy(xpath = "//android.view.ViewGroup[contains(@content-desc,'size_select_')]")
+    List<WebElement> sizes;
+    @FindBy(xpath = "//android.widget.TextView[@text='DONE']")
+    WebElement addToCartDone;
+    @FindBy(xpath = "//android.view.ViewGroup[@content-desc='bag']")
+    WebElement cartIcon;
+
+    public static int size;
+
+
+    public boolean isNextPageDisplayed(){
+        return false;
+    }
+    public void selectAllAvailableSizes(){
+        Dimension screenSize=driver.manage().window().getSize();
+        size=sizes.size();
+        for (WebElement i:sizes){
+            if (!isPresentXpath("//android.view.ViewGroup[@content-desc='priceinfo_container']")){
+                scrollOrSwipe(screenSize.getWidth(),300,screenSize.getWidth(),screenSize.getHeight());
+            }
+            if (!isPresentXpath("//android.widget.TextView[@content-desc='selling_price']")){
+                scrollOrSwipe(screenSize.getWidth(),screenSize.getHeight(),screenSize.getWidth(),0);
+            }
+            i.click();
+            addToCart.click();
+            cartBackIcon.click();
+        }
+    }
+    public void clickOnNextButton(){
+
+    }
+    public void clickOnPreviousButton(){
+
+    }
+
+
+    public void doAddToCart(){
+        addToCart.click();
+        sizes.get(0).click();
+        addToCartDone.click();
+        addToCartDone.click();
+        try {
+            Thread.sleep(4000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        cartIcon.click();
+    }
 
     public boolean isPageDisplayed(){
         return productPrice.isDisplayed();
