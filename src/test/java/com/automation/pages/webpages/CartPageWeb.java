@@ -11,6 +11,8 @@ public class CartPageWeb extends BasePageWeb implements CartPage {
     @FindBy(xpath = "//span[text()='1/1 ITEMS SELECTED']")
     WebElement cartItem;
 
+    @FindBy(xpath = "//span[text()='Social Work Donation']/following-sibling::span/span[2]")
+    WebElement donationAmount;
     @FindBy(xpath = "//span[contains(text(),'Size: ')]")
     List<WebElement> cartAddedSizes;
 
@@ -39,8 +41,8 @@ public class CartPageWeb extends BasePageWeb implements CartPage {
     @FindBy(xpath = "//div[text()='ADD TO BAG']")
     WebElement addToCartButton;
 
-//    @FindBy(xpath = "//span[text()='GO TO BAG']")
-//    WebElement goToBag;
+    @FindBy(xpath = "//div[@class='donationStrip-base-titleContainer']//*[name()='svg']")
+    WebElement donationCheckBox;
 //
 //    @FindBy(xpath = "//span[contains(@class,'desktop-badge') and text()='1']")
 //    WebElement cartIcon;
@@ -91,5 +93,15 @@ public class CartPageWeb extends BasePageWeb implements CartPage {
             }
         }
         return true;
+    }
+
+
+    public void selectDonation() {
+        donationCheckBox.click();
+    }
+
+    public boolean verifyDonationAdded() {
+        System.out.println(isDisplayed(donationAmount));
+        return isDisplayed(donationAmount);
     }
 }

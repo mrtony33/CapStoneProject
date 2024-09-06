@@ -23,6 +23,14 @@ public class SortPageWeb extends BasePageWeb implements SortPage {
     @FindBy(xpath = "//ul[@class='sort-list']/li[7]")
     WebElement option3;
 
+    @FindBy(xpath = "//ul[@class='sort-list']/li[4]")
+    WebElement sortByDiscount;
+
+    @FindBy(xpath = "//span[@class='product-discountPercentage' and contains(text(),'%')]")
+    List<WebElement> items;
+
+
+
     public void sortThePriceHighToLow() {
         dropdown.click();
         option1.click();
@@ -32,6 +40,22 @@ public class SortPageWeb extends BasePageWeb implements SortPage {
             throw new RuntimeException(e);
         }
     }
+
+    public void sortByDiscount(){
+        dropdown.click();
+        sortByDiscount.click();
+    }
+
+    public boolean verifyDiscountSort(){
+        List<String > values=new ArrayList<>();
+        List<String> sorted=new ArrayList<>();
+        for (WebElement i:items){
+            values.add(i.getText());
+            sorted.add(i.getText());
+        }
+        return values.equals(sorted);
+    }
+
     public void sortThePriceLowToHigh() {
         dropdown.click();
         option2.click();

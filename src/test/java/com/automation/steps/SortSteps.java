@@ -66,5 +66,6 @@ public class SortSteps {
 
     @Then("verify the product is sorted based on better discount")
     public void verifyTheProductIsSortedBasedOnBetterDiscount() {
+        Assert.assertTrue(sortPage.verifyDiscountSort());
     }
 }

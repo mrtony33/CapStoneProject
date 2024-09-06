@@ -75,5 +75,15 @@ public class CartPageAndroid extends BasePageAndroid implements CartPage {
             return cartItem.getText().contains(sizes+"");
         }
 
+    @Override
+    public void selectDonation() {
+
+    }
+
+    @Override
+    public boolean verifyDonationAdded() {
+        return false;
+    }
+
 
 }

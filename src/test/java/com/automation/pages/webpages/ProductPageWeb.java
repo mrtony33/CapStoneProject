@@ -19,6 +19,8 @@ public class ProductPageWeb extends BasePageWeb implements ProductPage {
     @FindBy(xpath = "//span[contains(@class,'desktop-badge')]")
     WebElement cartIcon;
 
+
+
     @FindBy(xpath = "//li[@class='pagination-next']")
     WebElement nextButton;
     @FindBy(xpath = "//li[@class='pagination-paginationMeta']")
@@ -49,7 +51,9 @@ public class ProductPageWeb extends BasePageWeb implements ProductPage {
         return isDisplayed(selectSize);
     }
     public void doAddToCart() {
-        doScroll(300);
+        if (!isDisplayed(addToCartButton)){
+            doScroll(100);
+        }
         selectSize.click();
         addToCartButton.click();
         if (isDisplayed(goToBag) && isDisplayed(cartIcon)) {
