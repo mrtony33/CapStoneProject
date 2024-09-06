@@ -58,4 +58,13 @@ public class SortSteps {
     public void verifyTheProductIsSortedBasedOnCustomerRating() {
         Assert.assertTrue(sortPage.verifyRatingSort());
     }
+
+    @And("user sort the product based on better discount")
+    public void userSortTheProductBasedOnBetterDiscount() {
+        sortPage.sortByDiscount();
+    }
+
+    @Then("verify the product is sorted based on better discount")
+    public void verifyTheProductIsSortedBasedOnBetterDiscount() {
+    }
 }

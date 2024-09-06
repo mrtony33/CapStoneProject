@@ -2,6 +2,7 @@ package com.automation.pages.androidPages;
 
 import com.automation.utils.DriverManager;
 import io.appium.java_client.AppiumDriver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Pause;
 import org.openqa.selenium.interactions.PointerInput;
@@ -27,6 +28,16 @@ public class BasePageAndroid {
         try {
             setImplicitWait(5);
             return element.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        } finally {
+            setImplicitWait(20);
+        }
+    }
+    public boolean isPresentXpath(String path) {
+        try {
+            setImplicitWait(5);
+            return driver.findElement(By.xpath(path)).isDisplayed();
         } catch (Exception e) {
             return false;
         } finally {

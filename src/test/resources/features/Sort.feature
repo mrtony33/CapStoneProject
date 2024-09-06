@@ -20,3 +20,10 @@ Feature: Sort the product
     When user search for "shirt"
     And user sort the product based on customer rating
     Then verify the product is sorted based on customer rating
+
+  Scenario: Verify user can sort the product based on better discount
+    Given user opens website
+    Then verify home page is displayed
+    When user search for "shirt"
+    And user sort the product based on better discount
+    Then verify the product is sorted based on better discount
