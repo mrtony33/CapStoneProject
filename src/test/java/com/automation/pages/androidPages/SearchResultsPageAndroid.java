@@ -2,47 +2,43 @@ package com.automation.pages.androidPages;
 
 import com.automation.pages.interfaces.SearchResultPage;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SearchResultsPageAndroid extends BasePageAndroid implements SearchResultPage {
     public static String searchKey;
 
-    @FindBy(xpath = "(//android.widget.TextView[contains(@text,'Best Price')])[2]")
-    WebElement item2ForScroll;
-
-    @FindBy(xpath = "//android.widget.ImageView[@content-desc='search']")
-    WebElement searchIcon;
 
     @FindBy(xpath = "//android.widget.TextView[contains(@text,' Items')]/preceding-sibling::android.widget.TextView[1]")
     WebElement resultsTitle;
 
-    List<WebElement> searchResults;
+    static List<WebElement> searchResults=new ArrayList<>();
 
 
 
     public boolean checkResultsPresent() {
         int count=1;
-        while (count<60){
-            System.out.println("inside while");
-            WebElement item=driver.findElement(By.xpath(String.format("//android.view.ViewGroup[@content-desc='plp_product_%d']",count++)));
-            if (isPresent(item)){
-                searchResults.add(item);
+        Dimension dimension = driver.manage().window().getSize();
+        int width = dimension.getWidth();
+        int height = dimension.getHeight();
+        while (count<3){
+            System.out.println(count);
+            if(!isPresentXpath(String.format("//android.view.ViewGroup[@content-desc='plp_product_%d']",++count))){
+                scrollOrSwipe(width / 2, height/2 , width / 2, 0);
             }else{
-                int startX=item2ForScroll.getLocation().getX();
-                int startY=item2ForScroll.getLocation().getY();
-                int endX=searchIcon.getLocation().getX();
-                int endY=searchIcon.getLocation().getY();
-                scrollOrSwipe(startX,startY,endX,endY);
-                count--;
+                System.out.println(count);
+                searchResults.add(driver.findElement(By.xpath(String.format("//android.view.ViewGroup[@content-desc='plp_product_%d']",count))));
             }
         }
         return !searchResults.isEmpty();
     }
 
     public void clickFirstResult() {
+        System.out.println(searchResults);
         searchResults.get(0).click();
     }
 

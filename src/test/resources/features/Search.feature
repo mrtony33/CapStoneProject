@@ -6,8 +6,6 @@ Feature: Search a product
     When user search for "shirt"
     Then verify the searched product is displayed
 
-
-
   Scenario: Verify next and previous button working
     Given user opens website
     Then verify home page is displayed
@@ -29,5 +27,3 @@ Feature: Search a product
     Then verify product page is displayed
     When user clicks go back button
     Then verify search results is not empty
-
-
