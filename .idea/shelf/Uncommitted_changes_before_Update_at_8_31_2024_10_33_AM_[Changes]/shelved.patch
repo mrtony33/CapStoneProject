@@ -1,0 +1,503 @@
+Index: src/test/resources/features/Filter.feature
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>Feature: Do filtering and verify functionality of radio,checkbox and dropdown\r\n\r\n\r\n  Scenario Outline: Verify user can filter by gender\r\n    Given user opens website\r\n    Then verify home page is displayed\r\n    When user search for \"shirt\"\r\n    Then verify the searched product is displayed\r\n    When user wants to filter by \"<filters>\"\r\n    Then verify gender filter is applied\r\n    Examples:\r\n      | filters |\r\n      | women   |\r\n      | men     |\r\n\r\n  Scenario Outline: Verify user can filter by discount\r\n    Given user opens website\r\n    Then verify home page is displayed\r\n    When user search for \"shirt\"\r\n    Then verify the searched product is displayed\r\n    When user wants to filter by \"<filters>\"\r\n    Then verify discount filter is applied\r\n    Examples:\r\n      | filters |\r\n      | 10      |\r\n      | 50      |\r\n\r\n\r\n  Scenario: Verify user can remove filters\r\n    Given user opens website\r\n    Then verify home page is displayed\r\n    When user search for \"shirt\"\r\n    Then verify the searched product is displayed\r\n    When user wants to filter by \"10\"\r\n    Then verify discount filter is applied\r\n    When user removes filter\r\n    Then verify filter is removed
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/resources/features/Filter.feature b/src/test/resources/features/Filter.feature
+--- a/src/test/resources/features/Filter.feature	(revision 51e16d25a64538c65c03fd481a583d8668d04a1e)
++++ b/src/test/resources/features/Filter.feature	(date 1725080217534)
+@@ -13,6 +13,7 @@
+       | women   |
+       | men     |
+ 
++    #fail
+   Scenario Outline: Verify user can filter by discount
+     Given user opens website
+     Then verify home page is displayed
+@@ -26,6 +27,7 @@
+       | 50      |
+ 
+ 
++    #fail
+   Scenario: Verify user can remove filters
+     Given user opens website
+     Then verify home page is displayed
+Index: src/test/java/com/automation/pages/webpages/SearchResultsPageWeb.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.automation.pages;\r\nimport org.openqa.selenium.By;\r\nimport org.openqa.selenium.WebElement;\r\nimport org.openqa.selenium.support.FindBy;\r\nimport java.util.List;\r\npublic class SearchResultsPage extends BasePage {\r\n    @FindBy(xpath = \"//li[@class='product-base']\")\r\n    List<WebElement> searchResults;\r\n    @FindBy(xpath = \"//span[text()='Bag']\")\r\n    WebElement cartIcon;\r\n    @FindBy(xpath = \"//span[text()='CLEAR ALL']\")\r\n    WebElement clearAllFilters;\r\n\r\n    String filter;\r\n\r\n\r\n    CartPage cartPage = new CartPage();\r\n\r\n\r\n    public void selectMany(int totalItemsToBeAdded) {\r\n        for (int i = 0; i < totalItemsToBeAdded; i++) {\r\n            searchResults.get(i).click();\r\n            switchHandles();\r\n            cartPage.getPriceOnProductPage();\r\n            driver.close();\r\n            switchHandles();\r\n        }\r\n    }\r\n\r\n    public void clickFirstResult() {\r\n        searchResults.get(0).click();\r\n    }\r\n\r\n    public boolean checkResultsPresent() {\r\n        return !searchResults.isEmpty();\r\n    }\r\n\r\n    public void goToCart() {\r\n        cartIcon.click();\r\n    }\r\n\r\n    WebElement radio;\r\n\r\n    public void doFilter(String filterKey) {\r\n        radio = driver.findElement(By.xpath(String.format(\"//input[contains(@value,'%s,')]\", filterKey)));\r\n        javascriptClicker(radio);\r\n        filter = filterKey;\r\n    }\r\n\r\n\r\n    public boolean checkFilterGender() {\r\n        try {\r\n            Thread.sleep(3000);\r\n        } catch (Exception ignored) {\r\n        }\r\n        return radio.isSelected();\r\n    }\r\n\r\n    public boolean checkFilterDiscount() {\r\n        int key = Integer.parseInt(filter);\r\n        boolean flag = true;\r\n        if (isDisplayed(clearAllFilters)) {\r\n            for (WebElement i : driver.findElements(By.xpath(\"//span[@class='product-discountPercentage']\"))) {\r\n                int currentDiscount = Integer.parseInt(i.getText().replaceAll(\"\\\\D+\", \"\"));\r\n                if (currentDiscount < key) {\r\n                    flag = false;\r\n                    break;\r\n                }\r\n            }\r\n        }\r\n        return flag;\r\n    }\r\n\r\n    public void removeFilter() {\r\n        clearAllFilters.click();\r\n    }\r\n\r\n    public boolean removeFilterSuccess() {\r\n        try {\r\n            Thread.sleep(3000);\r\n        } catch ( InterruptedException e) {\r\n            throw new RuntimeException(e);\r\n        }\r\n        return !isDisplayed(clearAllFilters);\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/com/automation/pages/webpages/SearchResultsPageWeb.java b/src/test/java/com/automation/pages/webpages/SearchResultsPageWeb.java
+--- a/src/test/java/com/automation/pages/webpages/SearchResultsPageWeb.java	(revision 51e16d25a64538c65c03fd481a583d8668d04a1e)
++++ b/src/test/java/com/automation/pages/webpages/SearchResultsPageWeb.java	(date 1725080008743)
+@@ -1,9 +1,13 @@
+-package com.automation.pages;
++package com.automation.pages.webpages;
++
++import com.automation.pages.interfaces.CartPage;
++import com.automation.pages.interfaces.SearchResultPage;
+ import org.openqa.selenium.By;
+ import org.openqa.selenium.WebElement;
+ import org.openqa.selenium.support.FindBy;
++
+ import java.util.List;
+-public class SearchResultsPage extends BasePage {
++public class SearchResultsPageWeb extends BasePageWeb implements SearchResultPage {
+     @FindBy(xpath = "//li[@class='product-base']")
+     List<WebElement> searchResults;
+     @FindBy(xpath = "//span[text()='Bag']")
+@@ -14,7 +18,7 @@
+     String filter;
+ 
+ 
+-    CartPage cartPage = new CartPage();
++    CartPage cartPage;
+ 
+ 
+     public void selectMany(int totalItemsToBeAdded) {
+Index: src/test/resources/features/Product.feature
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>Feature: Product page features\r\n\r\n  Scenario: Verify the product rating\r\n    Given user opens website\r\n    Then verify home page is displayed\r\n    When user search for \"shirt\"\r\n    Then verify the searched product is displayed\r\n    When user get the product rating\r\n    And user clicks on the first product\r\n    Then verify the product rating on product description page\r\n\r\n  Scenario: Verify the average product rating\r\n    Given user opens website\r\n    When user search for \"shirt\"\r\n    Then verify the searched product is displayed\r\n    When user clicks on the first product\r\n    And get the average rating based on the user review\r\n    Then verify the average product rating is displayed correctly\r\n\r\n\r\n   Scenario Outline: Verify customer review filtering\r\n     Given user opens website\r\n     Then verify home page is displayed\r\n     When user search for \"shirt\"\r\n     Then verify the searched product is displayed\r\n     When user clicks on the first product\r\n     And clicks on view all reviews\r\n     And filter the reviews based on \"<star>\" rating\r\n     Then verify that rating review is applied\r\n     Examples:\r\n        |star|\r\n        |3   |\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/resources/features/Product.feature b/src/test/resources/features/Product.feature
+--- a/src/test/resources/features/Product.feature	(revision 51e16d25a64538c65c03fd481a583d8668d04a1e)
++++ b/src/test/resources/features/Product.feature	(date 1725080235488)
+@@ -17,7 +17,7 @@
+     And get the average rating based on the user review
+     Then verify the average product rating is displayed correctly
+ 
+-
++#fail
+    Scenario Outline: Verify customer review filtering
+      Given user opens website
+      Then verify home page is displayed
+Index: src/test/resources/features/Sort.feature
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>Feature: Sort the product\r\n\r\n  Scenario: Verify user can sort the product price from high to low\r\n    Given user opens website\r\n    Then verify home page is displayed\r\n    When user search for \"shirt\"\r\n    And user sort the price from high to low\r\n    Then verify the product is sorted from high to low\r\n\r\n\r\n  Scenario: Verify user can sort the product price from low to high\r\n    Given user opens website\r\n    Then verify home page is displayed\r\n    When user search for \"shirt\"\r\n    And user sort the price from low to high\r\n    Then verify the product is sorted from low to high
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/resources/features/Sort.feature b/src/test/resources/features/Sort.feature
+--- a/src/test/resources/features/Sort.feature	(revision 51e16d25a64538c65c03fd481a583d8668d04a1e)
++++ b/src/test/resources/features/Sort.feature	(date 1725080290858)
+@@ -1,5 +1,6 @@
+ Feature: Sort the product
+ 
++  #fail
+   Scenario: Verify user can sort the product price from high to low
+     Given user opens website
+     Then verify home page is displayed
+Index: src/test/resources/features/Cart.feature
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>Feature: Cart Features\r\n\r\n  Scenario: Verify user can use add to cart functionality\r\n    Given user opens website\r\n    When user search for \"shirt\"\r\n    Then verify search results is not empty\r\n    And click on the first result\r\n    Then verify product page is displayed\r\n    When user clicks add to cart button\r\n    Then verify that item is added to cart\r\n\r\n  Scenario: Verify user can remove the product from the cart\r\n    Given user opens website\r\n    When user search for \"shirt\"\r\n    Then verify search results is not empty\r\n    And click on the first result\r\n    Then verify product page is displayed\r\n    When user clicks add to cart button\r\n    Then verify that item is added to cart\r\n    When user removes the item from the cart\r\n    Then verify that item is removed from the cart\r\n\r\n\r\n  Scenario: Verify cart price for multiple items\r\n    Given user opens website\r\n    When user search for \"shirt\"\r\n    Then verify search results is not empty\r\n    When user adds first \"1\" elements to cart\r\n    And go to cart page\r\n#    have to implement to check price of shipping and others too\r\n    Then verify the price in the cart page\r\n\r\n\r\n\r\n  Scenario: Verify size selector functionality\r\n    Given user opens website\r\n    When user search for \"shirt\"\r\n    Then verify search results is not empty\r\n    And click on the first result\r\n    Then verify product page is displayed\r\n    When user select available sizes\r\n    Then verify all sizes are added to cart
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/resources/features/Cart.feature b/src/test/resources/features/Cart.feature
+--- a/src/test/resources/features/Cart.feature	(revision 51e16d25a64538c65c03fd481a583d8668d04a1e)
++++ b/src/test/resources/features/Cart.feature	(date 1725080322561)
+@@ -20,12 +20,12 @@
+     When user removes the item from the cart
+     Then verify that item is removed from the cart
+ 
+-
++#fail
+   Scenario: Verify cart price for multiple items
+     Given user opens website
+     When user search for "shirt"
+     Then verify search results is not empty
+-    When user adds first "1" elements to cart
++    When user adds first "3" elements to cart
+     And go to cart page
+ #    have to implement to check price of shipping and others too
+     Then verify the price in the cart page
+Index: src/test/java/com/automation/pages/ProductPage.java
+===================================================================
+diff --git a/src/test/java/com/automation/pages/ProductPage.java b/src/test/java/com/automation/pages/ProductPage.java
+deleted file mode 100644
+--- a/src/test/java/com/automation/pages/ProductPage.java	(revision 51e16d25a64538c65c03fd481a583d8668d04a1e)
++++ /dev/null	(revision 51e16d25a64538c65c03fd481a583d8668d04a1e)
+@@ -1,94 +0,0 @@
+-package com.automation.pages;
+-
+-import org.openqa.selenium.WebElement;
+-import org.openqa.selenium.support.FindBy;
+-
+-import java.util.List;
+-
+-public class ProductPage extends BasePage{
+-    @FindBy(xpath = "(//button[contains(@class,'size-buttons-size-button ')])[1]")
+-    WebElement selectSize;
+-
+-    @FindBy(xpath = "//button[contains(@class,'size-buttons-size-button ')]")
+-    List<WebElement> sizes;
+-    @FindBy(xpath = "//div[text()='ADD TO BAG']")
+-    WebElement addToCartButton;
+-    @FindBy(xpath = "//span[text()='GO TO BAG']")
+-    WebElement goToBag;
+-    @FindBy(xpath = "//span[contains(@class,'desktop-badge')]")
+-    WebElement cartIcon;
+-    @FindBy(xpath = "//h1[@class='title-title']")
+-    WebElement productTitle;
+-    @FindBy(xpath = "//li[@class='pagination-next']")
+-    WebElement nextButton;
+-    @FindBy(xpath = "//li[@class='pagination-paginationMeta']")
+-    WebElement pageNum;
+-    @FindBy(xpath = "//li[@class='pagination-prev']")
+-    WebElement previousButton;
+-
+-
+-    public boolean isPageDisplayed() {
+-        switchHandles();
+-        doScroll(200);
+-        return isDisplayed(selectSize);
+-    }
+-    public void doAddToCart() {
+-//        doScroll(300);
+-        selectSize.click();
+-        addToCartButton.click();
+-        if (isDisplayed(goToBag) && isDisplayed(cartIcon)) {
+-            cartIcon.click();
+-        }
+-    }
+-
+-
+-    public boolean isProductDisplayed() {
+-        return productTitle.getText().contains("Shoe");
+-    }
+-
+-    public void selectAllAvailableSizes() {
+-        System.out.println(sizes.size());
+-        for (WebElement i:sizes){
+-            jse.executeScript("arguments[0].click();", i);
+-            addToCartButton.click();
+-        }
+-    }
+-
+-    int firstPageNumber;
+-    public void clickOnNextButton() {
+-        doScroll(300);
+-        String num=pageNum.getText().substring(5,6).trim();
+-        firstPageNumber=Integer.parseInt(num);
+-        System.out.println(firstPageNumber);
+-        nextButton.click();
+-        try {
+-            Thread.sleep(1000);
+-        } catch (InterruptedException e) {
+-            throw new RuntimeException(e);
+-        }
+-    }
+-    int secondPageNumber;
+-    public boolean isNextPageDisplayed() {
+-        String num=pageNum.getText().substring(5,6).trim();
+-        secondPageNumber=Integer.parseInt(num);
+-        System.out.println(secondPageNumber);
+-        return secondPageNumber==firstPageNumber+1;
+-    }
+-    public void clickOnPreviousButton() {
+-        doScroll(200);
+-        System.out.println(secondPageNumber);
+-        previousButton.click();
+-        try {
+-            Thread.sleep(1000);
+-        } catch (InterruptedException e) {
+-            throw new RuntimeException(e);
+-        }
+-    }
+-
+-    public boolean isPreviousPageDisplayed() {
+-        String num=pageNum.getText().substring(5,6).trim();
+-        int firstPageNum=Integer.parseInt(num);
+-        System.out.println(firstPageNum);
+-        return firstPageNum==secondPageNumber-1;
+-    }
+-}
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"5d53cca9-deb9-4429-8c76-a7fcddae412a\" name=\"Changes\" comment=\"Filter scenarios\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_17_2024_11_44_AM_[Changes]/shelved.patch\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_17_2024_11_44_AM__Changes_.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/com/automation/pages/HomePage.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/com/automation/pages/HomePage.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/com/automation/pages/ProductPage.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/com/automation/pages/ProductPage.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/com/automation/pages/SearchResultsPage.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/com/automation/pages/SearchResultsPage.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/com/automation/runners/TestRunner.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/com/automation/runners/TestRunner.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/test/resources/features/Filter.feature\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/resources/features/Filter.feature\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"CodeInsightWorkspaceSettings\">\r\n    <option name=\"optimizeImportsOnTheFly\" value=\"true\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"PUSH_AUTO_UPDATE\" value=\"true\" />\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 4\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2klndCMGWMIt1mdn1gurYJEaUNB\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;Cucumber Java.Feature: Cart.executor&quot;: &quot;Run&quot;,\r\n    &quot;Cucumber Java.Feature: Filter.executor&quot;: &quot;Run&quot;,\r\n    &quot;Cucumber Java.Scenario: Verify cart price for multiple items.executor&quot;: &quot;Run&quot;,\r\n    &quot;Cucumber Java.Scenario: Verify cart price.executor&quot;: &quot;Run&quot;,\r\n    &quot;Cucumber Java.Scenario: Verify clickable.executor&quot;: &quot;Run&quot;,\r\n    &quot;Cucumber Java.Scenario: Verify next and previous button working.executor&quot;: &quot;Run&quot;,\r\n    &quot;Cucumber Java.Scenario: Verify size selector functionality.executor&quot;: &quot;Run&quot;,\r\n    &quot;Cucumber Java.Scenario: Verify user can filter by gender.executor&quot;: &quot;Run&quot;,\r\n    &quot;Cucumber Java.Scenario: Verify user can remove filters.executor&quot;: &quot;Run&quot;,\r\n    &quot;Cucumber Java.Scenario: Verify user can remove the product from the cart.executor&quot;: &quot;Run&quot;,\r\n    &quot;Cucumber Java.Scenario: Verify user can search a product.executor&quot;: &quot;Run&quot;,\r\n    &quot;Cucumber Java.Scenario: Verify user can sort the product price from high to low.executor&quot;: &quot;Run&quot;,\r\n    &quot;Cucumber Java.Scenario: Verify user can sort the product price from low to high.executor&quot;: &quot;Run&quot;,\r\n    &quot;Cucumber Java.Scenario: Verify user can use add to cart functionality.executor&quot;: &quot;Run&quot;,\r\n    &quot;Cucumber Java.Scenario: check if valid phone number otp send.executor&quot;: &quot;Run&quot;,\r\n    &quot;JUnit.TestRunner.executor&quot;: &quot;Run&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;main&quot;,\r\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/280686/Desktop/postman/scratch_1.html&quot;,\r\n    &quot;onboarding.tips.debug.path&quot;: &quot;C:/UST_Java/CapStoneProject/src/main/java/org/example/Main.java&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.import&quot;\r\n  },\r\n  &quot;keyToStringList&quot;: {\r\n    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [\r\n      &quot;HTML&quot;\r\n    ]\r\n  }\r\n}</component>\r\n  <component name=\"RunManager\" selected=\"Cucumber Java.Scenario: Verify user can filter by gender\">\r\n    <configuration name=\"Feature: Filter\" type=\"CucumberJavaRunConfigurationType\" factoryName=\"Cucumber java\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"CUCUMBER_CORE_VERSION\" value=\"5\" />\r\n      <option name=\"FILE_PATH\" value=\"$PROJECT_DIR$/src/test/resources/features/Filter.feature\" />\r\n      <option name=\"GLUE\" value=\"com.automation.steps\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"io.cucumber.core.cli.Main\" />\r\n      <module name=\"CapStoneProject\" />\r\n      <option name=\"PROGRAM_PARAMETERS\" value=\" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter\" />\r\n      <option name=\"SUGGESTED_NAME\" value=\"Feature: Filter\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$MODULE_WORKING_DIR$\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"io.cucumber.core.cli.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Scenario: Verify next and previous button working\" type=\"CucumberJavaRunConfigurationType\" factoryName=\"Cucumber java\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"CUCUMBER_CORE_VERSION\" value=\"5\" />\r\n      <option name=\"FILE_PATH\" value=\"$PROJECT_DIR$/src/test/resources/features/Search.feature\" />\r\n      <option name=\"GLUE\" value=\"com.automation.steps\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"io.cucumber.core.cli.Main\" />\r\n      <module name=\"CapStoneProject\" />\r\n      <option name=\"NAME_FILTER\" value=\"^Verify next and previous button working$\" />\r\n      <option name=\"PROGRAM_PARAMETERS\" value=\" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify next and previous button working$&quot;\" />\r\n      <option name=\"SUGGESTED_NAME\" value=\"Scenario: Verify next and previous button working\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$MODULE_WORKING_DIR$\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"io.cucumber.core.cli.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Scenario: Verify user can filter by gender\" type=\"CucumberJavaRunConfigurationType\" factoryName=\"Cucumber java\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"CUCUMBER_CORE_VERSION\" value=\"5\" />\r\n      <option name=\"FILE_PATH\" value=\"$PROJECT_DIR$/src/test/resources/features/Filter.feature\" />\r\n      <option name=\"GLUE\" value=\"com.automation.steps\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"io.cucumber.core.cli.Main\" />\r\n      <module name=\"CapStoneProject\" />\r\n      <option name=\"NAME_FILTER\" value=\"^Verify user can filter by gender$\" />\r\n      <option name=\"PROGRAM_PARAMETERS\" value=\" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify user can filter by gender$&quot;\" />\r\n      <option name=\"SUGGESTED_NAME\" value=\"Scenario: Verify user can filter by gender\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$MODULE_WORKING_DIR$\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"io.cucumber.core.cli.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Scenario: Verify user can sort the product price from high to low\" type=\"CucumberJavaRunConfigurationType\" factoryName=\"Cucumber java\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"CUCUMBER_CORE_VERSION\" value=\"5\" />\r\n      <option name=\"FILE_PATH\" value=\"$PROJECT_DIR$/src/test/resources/features/Sort.feature\" />\r\n      <option name=\"GLUE\" value=\"com.automation.steps\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"io.cucumber.core.cli.Main\" />\r\n      <module name=\"CapStoneProject\" />\r\n      <option name=\"NAME_FILTER\" value=\"^Verify user can sort the product price from high to low$\" />\r\n      <option name=\"PROGRAM_PARAMETERS\" value=\" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify user can sort the product price from high to low$&quot;\" />\r\n      <option name=\"SUGGESTED_NAME\" value=\"Scenario: Verify user can sort the product price from high to low\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$MODULE_WORKING_DIR$\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"io.cucumber.core.cli.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Scenario: Verify user can sort the product price from low to high\" type=\"CucumberJavaRunConfigurationType\" factoryName=\"Cucumber java\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"CUCUMBER_CORE_VERSION\" value=\"5\" />\r\n      <option name=\"FILE_PATH\" value=\"$PROJECT_DIR$/src/test/resources/features/Sort.feature\" />\r\n      <option name=\"GLUE\" value=\"com.automation.steps\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"io.cucumber.core.cli.Main\" />\r\n      <module name=\"CapStoneProject\" />\r\n      <option name=\"NAME_FILTER\" value=\"^Verify user can sort the product price from low to high$\" />\r\n      <option name=\"PROGRAM_PARAMETERS\" value=\" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify user can sort the product price from low to high$&quot;\" />\r\n      <option name=\"SUGGESTED_NAME\" value=\"Scenario: Verify user can sort the product price from low to high\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$MODULE_WORKING_DIR$\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"io.cucumber.core.cli.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Cucumber Java.Scenario: Verify user can filter by gender\" />\r\n        <item itemvalue=\"Cucumber Java.Feature: Filter\" />\r\n        <item itemvalue=\"Cucumber Java.Scenario: Verify user can sort the product price from low to high\" />\r\n        <item itemvalue=\"Cucumber Java.Scenario: Verify user can sort the product price from high to low\" />\r\n        <item itemvalue=\"Cucumber Java.Scenario: Verify next and previous button working\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"5d53cca9-deb9-4429-8c76-a7fcddae412a\" name=\"Changes\" comment=\"\" />\r\n      <created>1723867116126</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1723867116126</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Implemented search method\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1723875214489</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1723875214489</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/test/java/com/automation/pages/BasePage.java&#10;#&#9;src/test/java/com/automation/steps/HomeStep.java\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1723892043338</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1723892043338</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Merge remote-tracking branch 'origin/main'\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1723892097721</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1723892097721</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Merge remote-tracking branch 'origin/main'\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1723893130315</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1723893130315</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"Merge remote-tracking branch 'origin/main'\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1723893363018</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1723893363019</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"Merge remote-tracking branch 'origin/main'\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1723893938854</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1723893938854</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"Merge remote-tracking branch 'origin/main'\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1724041515599</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1724041515599</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"Merge remote-tracking branch 'origin/main'\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1724060942629</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1724060942629</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"Merge remote-tracking branch 'origin/main'\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1724061028247</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1724061028247</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"Merge remote-tracking branch 'origin/main'\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1724135173471</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1724135173471</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"Merge remote-tracking branch 'origin/main'\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1724143495635</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1724143495635</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"code edited\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1724147532062</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1724147532062</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00013\" summary=\"massive update\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1724307875311</created>\r\n      <option name=\"number\" value=\"00013\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1724307875311</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00014\" summary=\"Filter scenarios\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1724309855005</created>\r\n      <option name=\"number\" value=\"00014\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1724309855005</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"15\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Implemented search method\" />\r\n    <MESSAGE value=\"Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/test/java/com/automation/pages/BasePage.java&#10;#&#9;src/test/java/com/automation/steps/HomeStep.java\" />\r\n    <MESSAGE value=\"Merge remote-tracking branch 'origin/main'\" />\r\n    <MESSAGE value=\"scenario size added\" />\r\n    <MESSAGE value=\"code edited\" />\r\n    <MESSAGE value=\"massive update\" />\r\n    <MESSAGE value=\"Filter scenarios\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Filter scenarios\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>\r\n          <line>13</line>\r\n          <option name=\"timeStamp\" value=\"1\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/src/test/java/com/automation/pages/CartPage.java</url>\r\n          <line>46</line>\r\n          <option name=\"timeStamp\" value=\"2\" />\r\n        </line-breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 51e16d25a64538c65c03fd481a583d8668d04a1e)
++++ b/.idea/workspace.xml	(date 1725080322647)
+@@ -5,14 +5,13 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="5d53cca9-deb9-4429-8c76-a7fcddae412a" name="Changes" comment="Filter scenarios">
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_17_2024_11_44_AM_[Changes]/shelved.patch" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_17_2024_11_44_AM__Changes_.xml" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/pages/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/pages/HomePage.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/pages/ProductPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/pages/ProductPage.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/pages/SearchResultsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/pages/SearchResultsPage.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/runners/TestRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/runners/TestRunner.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/pages/ProductPage.java" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/pages/webpages/SearchResultsPageWeb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/pages/webpages/SearchResultsPageWeb.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/resources/features/Cart.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/Cart.feature" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/test/resources/features/Filter.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/Filter.feature" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/resources/features/Product.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/Product.feature" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/resources/features/Sort.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/Sort.feature" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -48,11 +47,18 @@
+   &quot;keyToString&quot;: {
+     &quot;Cucumber Java.Feature: Cart.executor&quot;: &quot;Run&quot;,
+     &quot;Cucumber Java.Feature: Filter.executor&quot;: &quot;Run&quot;,
++    &quot;Cucumber Java.Feature: Product.executor&quot;: &quot;Run&quot;,
++    &quot;Cucumber Java.Feature: Search.executor&quot;: &quot;Run&quot;,
++    &quot;Cucumber Java.Feature: Sort.executor&quot;: &quot;Run&quot;,
+     &quot;Cucumber Java.Scenario: Verify cart price for multiple items.executor&quot;: &quot;Run&quot;,
+     &quot;Cucumber Java.Scenario: Verify cart price.executor&quot;: &quot;Run&quot;,
+     &quot;Cucumber Java.Scenario: Verify clickable.executor&quot;: &quot;Run&quot;,
++    &quot;Cucumber Java.Scenario: Verify customer review filtering.executor&quot;: &quot;Run&quot;,
+     &quot;Cucumber Java.Scenario: Verify next and previous button working.executor&quot;: &quot;Run&quot;,
+     &quot;Cucumber Java.Scenario: Verify size selector functionality.executor&quot;: &quot;Run&quot;,
++    &quot;Cucumber Java.Scenario: Verify the average product rating.executor&quot;: &quot;Run&quot;,
++    &quot;Cucumber Java.Scenario: Verify the product pricing.executor&quot;: &quot;Run&quot;,
++    &quot;Cucumber Java.Scenario: Verify the product rating.executor&quot;: &quot;Run&quot;,
+     &quot;Cucumber Java.Scenario: Verify user can filter by gender.executor&quot;: &quot;Run&quot;,
+     &quot;Cucumber Java.Scenario: Verify user can remove filters.executor&quot;: &quot;Run&quot;,
+     &quot;Cucumber Java.Scenario: Verify user can remove the product from the cart.executor&quot;: &quot;Run&quot;,
+@@ -62,21 +68,25 @@
+     &quot;Cucumber Java.Scenario: Verify user can use add to cart functionality.executor&quot;: &quot;Run&quot;,
+     &quot;Cucumber Java.Scenario: check if valid phone number otp send.executor&quot;: &quot;Run&quot;,
+     &quot;JUnit.TestRunner.executor&quot;: &quot;Run&quot;,
++    &quot;Maven.CapStoneProject [clean].executor&quot;: &quot;Run&quot;,
+     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;C:/Users/280686/Desktop/postman/scratch_1.html&quot;,
++    &quot;last_opened_file_path&quot;: &quot;C:/Users/280706/IdeaProjects/CapStoneProject/src/test/resources/application&quot;,
+     &quot;onboarding.tips.debug.path&quot;: &quot;C:/UST_Java/CapStoneProject/src/main/java/org/example/Main.java&quot;,
+     &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.import&quot;
+-  },
+-  &quot;keyToStringList&quot;: {
+-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+-      &quot;HTML&quot;
+-    ]
+   }
+ }</component>
+-  <component name="RunManager" selected="Cucumber Java.Scenario: Verify user can filter by gender">
++  <component name="RecentsManager">
++    <key name="CopyFile.RECENT_KEYS">
++      <recent name="C:\Users\280706\IdeaProjects\CapStoneProject\src\test\resources\application" />
++    </key>
++    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
++      <recent name="com.automation.pages.webpages" />
++    </key>
++  </component>
++  <component name="RunManager" selected="Cucumber Java.Scenario: Verify cart price for multiple items">
+     <configuration name="Feature: Filter" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+       <option name="CUCUMBER_CORE_VERSION" value="5" />
+       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/Filter.feature" />
+@@ -96,15 +106,14 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="Scenario: Verify next and previous button working" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
++    <configuration name="Feature: Product" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+       <option name="CUCUMBER_CORE_VERSION" value="5" />
+-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/Search.feature" />
++      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/Product.feature" />
+       <option name="GLUE" value="com.automation.steps" />
+       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+       <module name="CapStoneProject" />
+-      <option name="NAME_FILTER" value="^Verify next and previous button working$" />
+-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify next and previous button working$&quot;" />
+-      <option name="SUGGESTED_NAME" value="Scenario: Verify next and previous button working" />
++      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
++      <option name="SUGGESTED_NAME" value="Feature: Product" />
+       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+       <extension name="coverage">
+         <pattern>
+@@ -116,15 +125,14 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="Scenario: Verify user can filter by gender" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
++    <configuration name="Feature: Sort" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+       <option name="CUCUMBER_CORE_VERSION" value="5" />
+-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/Filter.feature" />
++      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/Sort.feature" />
+       <option name="GLUE" value="com.automation.steps" />
+       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+       <module name="CapStoneProject" />
+-      <option name="NAME_FILTER" value="^Verify user can filter by gender$" />
+-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify user can filter by gender$&quot;" />
+-      <option name="SUGGESTED_NAME" value="Scenario: Verify user can filter by gender" />
++      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
++      <option name="SUGGESTED_NAME" value="Feature: Sort" />
+       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+       <extension name="coverage">
+         <pattern>
+@@ -136,15 +144,15 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="Scenario: Verify user can sort the product price from high to low" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
++    <configuration name="Scenario: Verify cart price for multiple items" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+       <option name="CUCUMBER_CORE_VERSION" value="5" />
+-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/Sort.feature" />
++      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/Cart.feature" />
+       <option name="GLUE" value="com.automation.steps" />
+       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+       <module name="CapStoneProject" />
+-      <option name="NAME_FILTER" value="^Verify user can sort the product price from high to low$" />
+-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify user can sort the product price from high to low$&quot;" />
+-      <option name="SUGGESTED_NAME" value="Scenario: Verify user can sort the product price from high to low" />
++      <option name="NAME_FILTER" value="^Verify cart price for multiple items$" />
++      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify cart price for multiple items$&quot;" />
++      <option name="SUGGESTED_NAME" value="Scenario: Verify cart price for multiple items" />
+       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+       <extension name="coverage">
+         <pattern>
+@@ -156,33 +164,28 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="Scenario: Verify user can sort the product price from low to high" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+-      <option name="CUCUMBER_CORE_VERSION" value="5" />
+-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/Sort.feature" />
+-      <option name="GLUE" value="com.automation.steps" />
+-      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
++    <configuration name="TestRunner" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+       <module name="CapStoneProject" />
+-      <option name="NAME_FILTER" value="^Verify user can sort the product price from low to high$" />
+-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify user can sort the product price from low to high$&quot;" />
+-      <option name="SUGGESTED_NAME" value="Scenario: Verify user can sort the product price from low to high" />
+-      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+       <extension name="coverage">
+         <pattern>
+-          <option name="PATTERN" value="io.cucumber.core.cli.*" />
++          <option name="PATTERN" value="com.automation.runners.*" />
+           <option name="ENABLED" value="true" />
+         </pattern>
+       </extension>
++      <option name="PACKAGE_NAME" value="com.automation.runners" />
++      <option name="MAIN_CLASS_NAME" value="com.automation.runners.TestRunner" />
++      <option name="TEST_OBJECT" value="class" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+     <recent_temporary>
+       <list>
+-        <item itemvalue="Cucumber Java.Scenario: Verify user can filter by gender" />
++        <item itemvalue="Cucumber Java.Scenario: Verify cart price for multiple items" />
++        <item itemvalue="JUnit.TestRunner" />
++        <item itemvalue="Cucumber Java.Feature: Sort" />
+         <item itemvalue="Cucumber Java.Feature: Filter" />
+-        <item itemvalue="Cucumber Java.Scenario: Verify user can sort the product price from low to high" />
+-        <item itemvalue="Cucumber Java.Scenario: Verify user can sort the product price from high to low" />
+-        <item itemvalue="Cucumber Java.Scenario: Verify next and previous button working" />
++        <item itemvalue="Cucumber Java.Feature: Product" />
+       </list>
+     </recent_temporary>
+   </component>
+@@ -299,15 +302,71 @@
+       <option name="project" value="LOCAL" />
+       <updated>1724307875311</updated>
+     </task>
+-    <task id="LOCAL-00014" summary="Filter scenarios">
++    <task id="LOCAL-00014" summary="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
+       <option name="closed" value="true" />
+-      <created>1724309855005</created>
++      <created>1724329208981</created>
+       <option name="number" value="00014" />
+       <option name="presentableId" value="LOCAL-00014" />
+       <option name="project" value="LOCAL" />
+-      <updated>1724309855005</updated>
++      <updated>1724329208981</updated>
++    </task>
++    <task id="LOCAL-00015" summary="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
++      <option name="closed" value="true" />
++      <created>1724908917671</created>
++      <option name="number" value="00015" />
++      <option name="presentableId" value="LOCAL-00015" />
++      <option name="project" value="LOCAL" />
++      <updated>1724908917671</updated>
+     </task>
+-    <option name="localTasksCounter" value="15" />
++    <task id="LOCAL-00016" summary="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
++      <option name="closed" value="true" />
++      <created>1724908976702</created>
++      <option name="number" value="00016" />
++      <option name="presentableId" value="LOCAL-00016" />
++      <option name="project" value="LOCAL" />
++      <updated>1724908976702</updated>
++    </task>
++    <task id="LOCAL-00017" summary="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
++      <option name="closed" value="true" />
++      <created>1724909256475</created>
++      <option name="number" value="00017" />
++      <option name="presentableId" value="LOCAL-00017" />
++      <option name="project" value="LOCAL" />
++      <updated>1724909256475</updated>
++    </task>
++    <task id="LOCAL-00018" summary="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
++      <option name="closed" value="true" />
++      <created>1724909309959</created>
++      <option name="number" value="00018" />
++      <option name="presentableId" value="LOCAL-00018" />
++      <option name="project" value="LOCAL" />
++      <updated>1724909309959</updated>
++    </task>
++    <task id="LOCAL-00019" summary="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
++      <option name="closed" value="true" />
++      <created>1724912401961</created>
++      <option name="number" value="00019" />
++      <option name="presentableId" value="LOCAL-00019" />
++      <option name="project" value="LOCAL" />
++      <updated>1724912401961</updated>
++    </task>
++    <task id="LOCAL-00020" summary="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
++      <option name="closed" value="true" />
++      <created>1724912510094</created>
++      <option name="number" value="00020" />
++      <option name="presentableId" value="LOCAL-00020" />
++      <option name="project" value="LOCAL" />
++      <updated>1724912510094</updated>
++    </task>
++    <task id="LOCAL-00021" summary="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
++      <option name="closed" value="true" />
++      <created>1724912647008</created>
++      <option name="number" value="00021" />
++      <option name="presentableId" value="LOCAL-00021" />
++      <option name="project" value="LOCAL" />
++      <updated>1724912647008</updated>
++    </task>
++    <option name="localTasksCounter" value="22" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -328,6 +387,8 @@
+     <MESSAGE value="scenario size added" />
+     <MESSAGE value="code edited" />
+     <MESSAGE value="massive update" />
++    <MESSAGE value="new commit" />
++    <MESSAGE value="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
+     <MESSAGE value="Filter scenarios" />
+     <option name="LAST_COMMIT_MESSAGE" value="Filter scenarios" />
+   </component>
+@@ -340,7 +401,7 @@
+           <option name="timeStamp" value="1" />
+         </line-breakpoint>
+         <line-breakpoint enabled="true" type="java-line">
+-          <url>file://$PROJECT_DIR$/src/test/java/com/automation/pages/CartPage.java</url>
++          <url>file://$PROJECT_DIR$/src/test/java/com/automation/pages/webpages/CartPageWeb.java</url>
+           <line>46</line>
+           <option name="timeStamp" value="2" />
+         </line-breakpoint>

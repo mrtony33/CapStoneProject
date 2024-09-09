@@ -19,4 +19,8 @@ public interface CartPage {
     default boolean  checkSizesAdded(){
         return false;
     }
+
+    void selectDonation();
+
+    boolean verifyDonationAdded();
 }

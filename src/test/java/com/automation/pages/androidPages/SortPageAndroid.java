@@ -80,4 +80,15 @@ public class SortPageAndroid extends BasePageAndroid implements SortPage {
         Collections.sort(ratings2);
         return ratings.equals(ratings2);
     }
+
+    @Override
+    public void sortByDiscount() {
+
+    }
+
+    @Override
+    public boolean verifyDiscountSort() {
+
+        return false;
+    }
 }

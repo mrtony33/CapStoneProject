@@ -10,6 +10,7 @@ public class ProductPageWeb extends BasePageWeb implements ProductPage {
     @FindBy(xpath = "(//button[contains(@class,'size-buttons-size-button ')])[1]")
     WebElement selectSize;
 
+
     @FindBy(xpath = "//button[contains(@class,'size-buttons-size-button ')]")
     List<WebElement> sizes;
     @FindBy(xpath = "//div[text()='ADD TO BAG']")
@@ -18,6 +19,8 @@ public class ProductPageWeb extends BasePageWeb implements ProductPage {
     WebElement goToBag;
     @FindBy(xpath = "//span[contains(@class,'desktop-badge')]")
     WebElement cartIcon;
+
+
 
     @FindBy(xpath = "//li[@class='pagination-next']")
     WebElement nextButton;
@@ -49,7 +52,9 @@ public class ProductPageWeb extends BasePageWeb implements ProductPage {
         return isDisplayed(selectSize);
     }
     public void doAddToCart() {
-        doScroll(300);
+        if (!isDisplayed(addToCartButton)){
+            doScroll(100);
+        }
         selectSize.click();
         addToCartButton.click();
         if (isDisplayed(goToBag) && isDisplayed(cartIcon)) {

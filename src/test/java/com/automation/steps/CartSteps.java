@@ -49,4 +49,14 @@ public class CartSteps {
     public void verifyAllSizesAreAddedToCart() {
         Assert.assertTrue(cartPage.checkSizesAdded());
     }
+
+    @When("user select donate option")
+    public void userSelectDonateOption() {
+        cartPage.selectDonation();
+    }
+
+    @Then("verify donation amount is added to price")
+    public void verifyDonationAmountIsAddedToPrice() {
+        Assert.assertTrue(cartPage.verifyDonationAdded());
+    }
 }

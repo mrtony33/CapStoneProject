@@ -38,3 +38,15 @@ Feature: Cart Features
     Then verify product page is displayed
     When user select available sizes
     Then verify all sizes are added to cart
+
+
+  Scenario: Verify donate option is working in checkout
+    Given user opens website
+    When user search for "shirt"
+    Then verify search results is not empty
+    And click on the first result
+    Then verify product page is displayed
+    When user clicks add to cart button
+    Then verify that item is added to cart
+    When user select donate option
+    Then verify donation amount is added to price

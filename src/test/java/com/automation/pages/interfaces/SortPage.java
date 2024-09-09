@@ -20,4 +20,6 @@ public interface SortPage {
    }
 
     void sortByDiscount();
+
+    boolean verifyDiscountSort();
 }
